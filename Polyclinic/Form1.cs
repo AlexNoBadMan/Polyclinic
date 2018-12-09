@@ -34,13 +34,6 @@ namespace Polyclinic
 
         }
 
-        private void пациентDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var cell = пациентDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
-
-            //пациентDataGridView.Rows.RemoveAt(cell.RowIndex);
-        }
-
         private void пациентDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var cell = пациентDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
@@ -51,7 +44,10 @@ namespace Polyclinic
                 if (deleteDiaolg == DialogResult.Yes)
                 {
                     пациентDataGridView.Rows.RemoveAt(e.RowIndex);
+                    пациентTableAdapter.Update(поликлиникаDataSet.Пациент);
+                    поликлиникаDataSet.AcceptChanges();
                 }
+                return;
             }
         }
     }
