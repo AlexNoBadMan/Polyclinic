@@ -27,6 +27,8 @@ namespace Polyclinic
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "поликлиникаDataSet.Схема_лечения". При необходимости она может быть перемещена или удалена.
+            this.схема_леченияTableAdapter.Fill(this.поликлиникаDataSet.Схема_лечения);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "поликлиникаDataSet.СписокРегистратуры". При необходимости она может быть перемещена или удалена.
             this.списокРегистратурыTableAdapter.Fill(this.поликлиникаDataSet.СписокРегистратуры);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "поликлиникаDataSet.Пациент". При необходимости она может быть перемещена или удалена.
@@ -49,6 +51,20 @@ namespace Polyclinic
                 }
                 return;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            пациентDataGridView.Visible = false;
+            пациентBindingSource.AddNew();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.пациентBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.поликлиникаDataSet);
+            пациентDataGridView.Visible = true;
         }
     }
 }

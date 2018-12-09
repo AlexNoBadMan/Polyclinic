@@ -323,6 +323,26 @@ SELECT [Код пациента], ФИО, [Адрес проживания], [Д
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Схема леченияTableAdapter" GeneratorDataComponentClassName="Схема_леченияTableAdapter" Name="Схема лечения" UserDataComponentName="Схема леченияTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ПоликлиникаConnectionString (Settings)" DbObjectName="dbo.[Схема лечения]" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [Код пациента], [Код врача], [Код диагноза], Наименование, [Описание схемы лечения и назначений] FROM dbo.[Схема лечения]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Код пациента" DataSetColumn="Код пациента" />
+              <Mapping SourceColumn="Код врача" DataSetColumn="Код врача" />
+              <Mapping SourceColumn="Код диагноза" DataSetColumn="Код диагноза" />
+              <Mapping SourceColumn="Наименование" DataSetColumn="Наименование" />
+              <Mapping SourceColumn="Описание схемы лечения и назначений" DataSetColumn="Описание схемы лечения и назначений" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -465,6 +485,29 @@ SELECT [Код пациента], ФИО, [Адрес проживания], [Д
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Схема_x0020_лечения" msprop:Generator_TableClassName="Схема_леченияDataTable" msprop:Generator_TableVarName="tableСхема_лечения" msprop:Generator_TablePropName="Схема_лечения" msprop:Generator_RowDeletingName="Схема_леченияRowDeleting" msprop:Generator_RowChangingName="Схема_леченияRowChanging" msprop:Generator_RowEvHandlerName="Схема_леченияRowChangeEventHandler" msprop:Generator_RowDeletedName="Схема_леченияRowDeleted" msprop:Generator_UserTableName="Схема лечения" msprop:Generator_RowChangedName="Схема_леченияRowChanged" msprop:Generator_RowEvArgName="Схема_леченияRowChangeEvent" msprop:Generator_RowClassName="Схема_леченияRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Код_x0020_пациента" msprop:Generator_ColumnVarNameInTable="columnКод_пациента" msprop:Generator_ColumnPropNameInRow="Код_пациента" msprop:Generator_ColumnPropNameInTable="Код_пациентаColumn" msprop:Generator_UserColumnName="Код пациента" type="xs:int" />
+              <xs:element name="Код_x0020_врача" msprop:Generator_ColumnVarNameInTable="columnКод_врача" msprop:Generator_ColumnPropNameInRow="Код_врача" msprop:Generator_ColumnPropNameInTable="Код_врачаColumn" msprop:Generator_UserColumnName="Код врача" type="xs:int" minOccurs="0" />
+              <xs:element name="Код_x0020_диагноза" msprop:Generator_ColumnVarNameInTable="columnКод_диагноза" msprop:Generator_ColumnPropNameInRow="Код_диагноза" msprop:Generator_ColumnPropNameInTable="Код_диагнозаColumn" msprop:Generator_UserColumnName="Код диагноза" type="xs:int" minOccurs="0" />
+              <xs:element name="Наименование" msprop:Generator_ColumnVarNameInTable="columnНаименование" msprop:Generator_ColumnPropNameInRow="Наименование" msprop:Generator_ColumnPropNameInTable="НаименованиеColumn" msprop:Generator_UserColumnName="Наименование" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Описание_x0020_схемы_x0020_лечения_x0020_и_x0020_назначений" msprop:Generator_ColumnVarNameInTable="columnОписание_схемы_лечения_и_назначений" msprop:Generator_ColumnPropNameInRow="Описание_схемы_лечения_и_назначений" msprop:Generator_ColumnPropNameInTable="Описание_схемы_лечения_и_назначенийColumn" msprop:Generator_UserColumnName="Описание схемы лечения и назначений" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -494,6 +537,9 @@ SELECT [Код пациента], ФИО, [Адрес проживания], [Д
       <msdata:Relationship name="FK_Регистратура_Пациент" msdata:parent="Пациент" msdata:child="Регистратура" msdata:parentkey="Код_x0020_пациента" msdata:childkey="Код_x0020_пациента" msprop:Generator_UserChildTable="Регистратура" msprop:Generator_ChildPropName="GetРегистратураRows" msprop:Generator_UserRelationName="FK_Регистратура_Пациент" msprop:Generator_RelationVarName="relationFK_Регистратура_Пациент" msprop:Generator_UserParentTable="Пациент" msprop:Generator_ParentPropName="ПациентRow" />
       <msdata:Relationship name="Пациент_СписокРегистратуры" msdata:parent="Пациент" msdata:child="СписокРегистратуры" msdata:parentkey="Код_x0020_пациента" msdata:childkey="Код_x0020_пациента" msprop:Generator_UserChildTable="СписокРегистратуры" msprop:Generator_ChildPropName="GetСписокРегистратурыRows" msprop:Generator_UserRelationName="Пациент_СписокРегистратуры" msprop:Generator_ParentPropName="ПациентRow" msprop:Generator_RelationVarName="relationПациент_СписокРегистратуры" msprop:Generator_UserParentTable="Пациент" />
       <msdata:Relationship name="Врачи_СписокРегистратуры" msdata:parent="Врачи" msdata:child="СписокРегистратуры" msdata:parentkey="Код_x0020_врача" msdata:childkey="Код_x0020_врача" msprop:Generator_UserChildTable="СписокРегистратуры" msprop:Generator_ChildPropName="GetСписокРегистратурыRows" msprop:Generator_UserRelationName="Врачи_СписокРегистратуры" msprop:Generator_ParentPropName="ВрачиRow" msprop:Generator_RelationVarName="relationВрачи_СписокРегистратуры" msprop:Generator_UserParentTable="Врачи" />
+      <msdata:Relationship name="Пациент_Схема_x0020_лечения" msdata:parent="Пациент" msdata:child="Схема_x0020_лечения" msdata:parentkey="Код_x0020_пациента" msdata:childkey="Код_x0020_пациента" msprop:Generator_UserChildTable="Схема лечения" msprop:Generator_ChildPropName="GetСхема_леченияRows" msprop:Generator_UserRelationName="Пациент_Схема лечения" msprop:Generator_ParentPropName="ПациентRow" msprop:Generator_RelationVarName="relationПациент_Схема_лечения" msprop:Generator_UserParentTable="Пациент" />
+      <msdata:Relationship name="Врачи_Схема_x0020_лечения" msdata:parent="Врачи" msdata:child="Схема_x0020_лечения" msdata:parentkey="Код_x0020_врача" msdata:childkey="Код_x0020_врача" msprop:Generator_UserChildTable="Схема лечения" msprop:Generator_ChildPropName="GetСхема_леченияRows" msprop:Generator_UserRelationName="Врачи_Схема лечения" msprop:Generator_ParentPropName="ВрачиRow" msprop:Generator_RelationVarName="relationВрачи_Схема_лечения" msprop:Generator_UserParentTable="Врачи" />
+      <msdata:Relationship name="Диагнозы_Схема_x0020_лечения" msdata:parent="Диагнозы" msdata:child="Схема_x0020_лечения" msdata:parentkey="Код_x0020_диагноза" msdata:childkey="Код_x0020_диагноза" msprop:Generator_UserChildTable="Схема лечения" msprop:Generator_ChildPropName="GetСхема_леченияRows" msprop:Generator_UserRelationName="Диагнозы_Схема лечения" msprop:Generator_ParentPropName="ДиагнозыRow" msprop:Generator_RelationVarName="relationДиагнозы_Схема_лечения" msprop:Generator_UserParentTable="Диагнозы" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
