@@ -29,118 +29,107 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label фИОLabel;
-            System.Windows.Forms.Label адрес_проживанияLabel;
-            System.Windows.Forms.Label дата_рожденияLabel;
-            System.Windows.Forms.Label полLabel;
-            System.Windows.Forms.Label телефонLabel;
             System.Windows.Forms.Label признак_льготLabel;
+            System.Windows.Forms.Label телефонLabel;
+            System.Windows.Forms.Label полLabel;
+            System.Windows.Forms.Label дата_рожденияLabel;
+            System.Windows.Forms.Label адрес_проживанияLabel;
+            System.Windows.Forms.Label фИОLabel;
+            System.Windows.Forms.Label код_пациентаLabel;
+            System.Windows.Forms.Label код_врачаLabel;
+            System.Windows.Forms.Label дата_и_время_приёмаLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.регистратураBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.пациентBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.polyDataSet = new Polyclinic.PolyDataSet();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.схема_леченияDataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.признак_льготComboBox = new System.Windows.Forms.ComboBox();
+            this.телефонTextBox = new System.Windows.Forms.TextBox();
+            this.полComboBox = new System.Windows.Forms.ComboBox();
+            this.дата_рожденияDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.адрес_проживанияTextBox = new System.Windows.Forms.TextBox();
+            this.фИОTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.списокРегистратурыDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.кодПациентаDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.пациентDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.кодВрачаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.врачDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.датаИВремяПриёмаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegistryChangeColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.RegistryDeleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.списокРегистратурыBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.пациентDataGridView = new System.Windows.Forms.DataGridView();
+            this.кодПациентаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.фИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.адресПроживанияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.датаРожденияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.полDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.признакЛьготDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PatientChangeColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PatientDeleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.пациентTableAdapter = new Polyclinic.PolyDataSetTableAdapters.ПациентTableAdapter();
+            this.tableAdapterManager = new Polyclinic.PolyDataSetTableAdapters.TableAdapterManager();
+            this.списокРегистратурыTableAdapter = new Polyclinic.PolyDataSetTableAdapters.СписокРегистратурыTableAdapter();
+            this.регистратураTableAdapter = new Polyclinic.PolyDataSetTableAdapters.РегистратураTableAdapter();
+            this.врачиBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.врачиTableAdapter = new Polyclinic.PolyDataSetTableAdapters.ВрачиTableAdapter();
+            this.врачиDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.пациентBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.поликлиникаDataSet = new Polyclinic.ПоликлиникаDataSet();
-            this.списокРегистратурыBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.списокРегистратурыDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.фИОTextBox = new System.Windows.Forms.TextBox();
-            this.адрес_проживанияTextBox = new System.Windows.Forms.TextBox();
-            this.дата_рожденияDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.полComboBox = new System.Windows.Forms.ComboBox();
-            this.телефонTextBox = new System.Windows.Forms.TextBox();
-            this.признак_льготComboBox = new System.Windows.Forms.ComboBox();
-            this.пациентTableAdapter = new Polyclinic.ПоликлиникаDataSetTableAdapters.ПациентTableAdapter();
-            this.tableAdapterManager = new Polyclinic.ПоликлиникаDataSetTableAdapters.TableAdapterManager();
-            this.списокРегистратурыTableAdapter = new Polyclinic.ПоликлиникаDataSetTableAdapters.СписокРегистратурыTableAdapter();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.схема_леченияBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.схема_леченияTableAdapter = new Polyclinic.ПоликлиникаDataSetTableAdapters.Схема_леченияTableAdapter();
-            this.схема_леченияDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            фИОLabel = new System.Windows.Forms.Label();
-            адрес_проживанияLabel = new System.Windows.Forms.Label();
-            дата_рожденияLabel = new System.Windows.Forms.Label();
-            полLabel = new System.Windows.Forms.Label();
-            телефонLabel = new System.Windows.Forms.Label();
+            this.RegistryGroup = new System.Windows.Forms.GroupBox();
+            this.RegistryCancel = new System.Windows.Forms.Button();
+            this.RegistrySave = new System.Windows.Forms.Button();
+            this.код_пациентаComboBox = new System.Windows.Forms.ComboBox();
+            this.код_врачаComboBox = new System.Windows.Forms.ComboBox();
+            this.дата_и_время_приёмаDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.схемаЛеченияBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.схемаЛеченияTableAdapter = new Polyclinic.PolyDataSetTableAdapters.СхемаЛеченияTableAdapter();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.кодПациентаDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.кодВрачаDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.кодДиагнозаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.наименованиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.описаниеСхемыЛеченияИНазначенийDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             признак_льготLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.пациентDataGridView)).BeginInit();
+            телефонLabel = new System.Windows.Forms.Label();
+            полLabel = new System.Windows.Forms.Label();
+            дата_рожденияLabel = new System.Windows.Forms.Label();
+            адрес_проживанияLabel = new System.Windows.Forms.Label();
+            фИОLabel = new System.Windows.Forms.Label();
+            код_пациентаLabel = new System.Windows.Forms.Label();
+            код_врачаLabel = new System.Windows.Forms.Label();
+            дата_и_время_приёмаLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.регистратураBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.пациентBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.поликлиникаDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.списокРегистратурыBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.списокРегистратурыDataGridView)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.схема_леченияBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.polyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.схема_леченияDataGridView)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.списокРегистратурыDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокРегистратурыBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.пациентDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.врачиBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.врачиDataGridView)).BeginInit();
+            this.RegistryGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.схемаЛеченияBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // фИОLabel
-            // 
-            фИОLabel.AutoSize = true;
-            фИОLabel.Location = new System.Drawing.Point(26, 85);
-            фИОLabel.Name = "фИОLabel";
-            фИОLabel.Size = new System.Drawing.Size(59, 24);
-            фИОLabel.TabIndex = 2;
-            фИОLabel.Text = "ФИО:";
-            // 
-            // адрес_проживанияLabel
-            // 
-            адрес_проживанияLabel.AutoSize = true;
-            адрес_проживанияLabel.Location = new System.Drawing.Point(26, 120);
-            адрес_проживанияLabel.Name = "адрес_проживанияLabel";
-            адрес_проживанияLabel.Size = new System.Drawing.Size(188, 24);
-            адрес_проживанияLabel.TabIndex = 4;
-            адрес_проживанияLabel.Text = "Адрес проживания:";
-            // 
-            // дата_рожденияLabel
-            // 
-            дата_рожденияLabel.AutoSize = true;
-            дата_рожденияLabel.Location = new System.Drawing.Point(26, 156);
-            дата_рожденияLabel.Name = "дата_рожденияLabel";
-            дата_рожденияLabel.Size = new System.Drawing.Size(155, 24);
-            дата_рожденияLabel.TabIndex = 6;
-            дата_рожденияLabel.Text = "Дата рождения:";
-            // 
-            // полLabel
-            // 
-            полLabel.AutoSize = true;
-            полLabel.Location = new System.Drawing.Point(26, 190);
-            полLabel.Name = "полLabel";
-            полLabel.Size = new System.Drawing.Size(49, 24);
-            полLabel.TabIndex = 8;
-            полLabel.Text = "Пол:";
-            // 
-            // телефонLabel
-            // 
-            телефонLabel.AutoSize = true;
-            телефонLabel.Location = new System.Drawing.Point(26, 228);
-            телефонLabel.Name = "телефонLabel";
-            телефонLabel.Size = new System.Drawing.Size(95, 24);
-            телефонLabel.TabIndex = 10;
-            телефонLabel.Text = "Телефон:";
             // 
             // признак_льготLabel
             // 
@@ -151,184 +140,202 @@
             признак_льготLabel.TabIndex = 12;
             признак_льготLabel.Text = "Признак льгот:";
             // 
-            // пациентDataGridView
+            // телефонLabel
             // 
-            this.пациентDataGridView.AllowUserToAddRows = false;
-            this.пациентDataGridView.AllowUserToDeleteRows = false;
-            this.пациентDataGridView.AutoGenerateColumns = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.пациентDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.пациентDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.пациентDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.Column1,
-            this.Column2});
-            this.пациентDataGridView.DataSource = this.пациентBindingSource;
-            this.пациентDataGridView.Location = new System.Drawing.Point(6, 33);
-            this.пациентDataGridView.Name = "пациентDataGridView";
-            this.пациентDataGridView.RowHeadersVisible = false;
-            this.пациентDataGridView.Size = new System.Drawing.Size(974, 220);
-            this.пациентDataGridView.TabIndex = 1;
-            this.пациентDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.пациентDataGridView_CellContentClick);
+            телефонLabel.AutoSize = true;
+            телефонLabel.Location = new System.Drawing.Point(26, 228);
+            телефонLabel.Name = "телефонLabel";
+            телефонLabel.Size = new System.Drawing.Size(95, 24);
+            телефонLabel.TabIndex = 10;
+            телефонLabel.Text = "Телефон:";
             // 
-            // dataGridViewTextBoxColumn1
+            // полLabel
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Код пациента";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Код пациента";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            полLabel.AutoSize = true;
+            полLabel.Location = new System.Drawing.Point(26, 190);
+            полLabel.Name = "полLabel";
+            полLabel.Size = new System.Drawing.Size(49, 24);
+            полLabel.TabIndex = 8;
+            полLabel.Text = "Пол:";
             // 
-            // dataGridViewTextBoxColumn2
+            // дата_рожденияLabel
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ФИО";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ФИО";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            дата_рожденияLabel.AutoSize = true;
+            дата_рожденияLabel.Location = new System.Drawing.Point(26, 156);
+            дата_рожденияLabel.Name = "дата_рожденияLabel";
+            дата_рожденияLabel.Size = new System.Drawing.Size(155, 24);
+            дата_рожденияLabel.TabIndex = 6;
+            дата_рожденияLabel.Text = "Дата рождения:";
             // 
-            // dataGridViewTextBoxColumn3
+            // адрес_проживанияLabel
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Адрес проживания";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Адрес проживания";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            адрес_проживанияLabel.AutoSize = true;
+            адрес_проживанияLabel.Location = new System.Drawing.Point(26, 120);
+            адрес_проживанияLabel.Name = "адрес_проживанияLabel";
+            адрес_проживанияLabel.Size = new System.Drawing.Size(188, 24);
+            адрес_проживанияLabel.TabIndex = 4;
+            адрес_проживанияLabel.Text = "Адрес проживания:";
             // 
-            // dataGridViewTextBoxColumn4
+            // фИОLabel
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Дата рождения";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Дата рождения";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            фИОLabel.AutoSize = true;
+            фИОLabel.Location = new System.Drawing.Point(26, 85);
+            фИОLabel.Name = "фИОLabel";
+            фИОLabel.Size = new System.Drawing.Size(59, 24);
+            фИОLabel.TabIndex = 2;
+            фИОLabel.Text = "ФИО:";
             // 
-            // dataGridViewTextBoxColumn5
+            // код_пациентаLabel
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Пол";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Пол";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            код_пациентаLabel.AutoSize = true;
+            код_пациентаLabel.Location = new System.Drawing.Point(21, 58);
+            код_пациентаLabel.Name = "код_пациентаLabel";
+            код_пациентаLabel.Size = new System.Drawing.Size(119, 20);
+            код_пациентаLabel.TabIndex = 2;
+            код_пациентаLabel.Text = "Код пациента:";
             // 
-            // dataGridViewTextBoxColumn6
+            // код_врачаLabel
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Телефон";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Телефон";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            код_врачаLabel.AutoSize = true;
+            код_врачаLabel.Location = new System.Drawing.Point(21, 92);
+            код_врачаLabel.Name = "код_врачаLabel";
+            код_врачаLabel.Size = new System.Drawing.Size(92, 20);
+            код_врачаLabel.TabIndex = 4;
+            код_врачаLabel.Text = "Код врача:";
             // 
-            // dataGridViewTextBoxColumn7
+            // дата_и_время_приёмаLabel
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Признак льгот";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Признак льгот";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            дата_и_время_приёмаLabel.AutoSize = true;
+            дата_и_время_приёмаLabel.Location = new System.Drawing.Point(21, 127);
+            дата_и_время_приёмаLabel.Name = "дата_и_время_приёмаLabel";
+            дата_и_время_приёмаLabel.Size = new System.Drawing.Size(176, 20);
+            дата_и_время_приёмаLabel.TabIndex = 6;
+            дата_и_время_приёмаLabel.Text = "Дата и время приёма:";
             // 
-            // Column1
+            // регистратураBindingSource
             // 
-            this.Column1.HeaderText = "Добавить";
-            this.Column1.Name = "Column1";
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.Text = "Добавить";
-            this.Column1.UseColumnTextForLinkValue = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Код пациента";
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Text = "Удалить";
-            this.Column2.TrackVisitedState = false;
-            this.Column2.UseColumnTextForLinkValue = true;
+            this.регистратураBindingSource.DataMember = "FK_Регистратура_Пациент";
+            this.регистратураBindingSource.DataSource = this.пациентBindingSource;
             // 
             // пациентBindingSource
             // 
             this.пациентBindingSource.DataMember = "Пациент";
-            this.пациентBindingSource.DataSource = this.поликлиникаDataSet;
+            this.пациентBindingSource.DataSource = this.polyDataSet;
             // 
-            // поликлиникаDataSet
+            // polyDataSet
             // 
-            this.поликлиникаDataSet.DataSetName = "ПоликлиникаDataSet";
-            this.поликлиникаDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.polyDataSet.DataSetName = "PolyDataSet";
+            this.polyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // списокРегистратурыBindingSource
+            // button2
             // 
-            this.списокРегистратурыBindingSource.DataMember = "Пациент_СписокРегистратуры";
-            this.списокРегистратурыBindingSource.DataSource = this.пациентBindingSource;
+            this.button2.Location = new System.Drawing.Point(1020, 75);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // списокРегистратурыDataGridView
+            // button1
             // 
-            this.списокРегистратурыDataGridView.AutoGenerateColumns = false;
-            this.списокРегистратурыDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.списокРегистратурыDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12});
-            this.списокРегистратурыDataGridView.DataSource = this.списокРегистратурыBindingSource;
-            this.списокРегистратурыDataGridView.Location = new System.Drawing.Point(8, 28);
-            this.списокРегистратурыDataGridView.Name = "списокРегистратурыDataGridView";
-            this.списокРегистратурыDataGridView.RowHeadersVisible = false;
-            this.списокРегистратурыDataGridView.Size = new System.Drawing.Size(320, 159);
-            this.списокРегистратурыDataGridView.TabIndex = 2;
+            this.button1.Location = new System.Drawing.Point(1020, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataGridViewTextBoxColumn8
+            // схема_леченияDataGridView
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Код пациента";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Код пациента";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Visible = false;
+            this.схема_леченияDataGridView.AutoGenerateColumns = false;
+            this.схема_леченияDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.схема_леченияDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.кодПациентаDataGridViewTextBoxColumn2,
+            this.кодВрачаDataGridViewTextBoxColumn1,
+            this.кодДиагнозаDataGridViewTextBoxColumn,
+            this.наименованиеDataGridViewTextBoxColumn,
+            this.описаниеСхемыЛеченияИНазначенийDataGridViewTextBoxColumn});
+            this.схема_леченияDataGridView.DataSource = this.схемаЛеченияBindingSource;
+            this.схема_леченияDataGridView.Location = new System.Drawing.Point(6, 22);
+            this.схема_леченияDataGridView.Name = "схема_леченияDataGridView";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.схема_леченияDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.схема_леченияDataGridView.RowHeadersVisible = false;
+            this.схема_леченияDataGridView.RowTemplate.Height = 24;
+            this.схема_леченияDataGridView.Size = new System.Drawing.Size(485, 269);
+            this.схема_леченияDataGridView.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn9
+            // groupBox4
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Пациент";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Пациент";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.groupBox4.Controls.Add(this.схема_леченияDataGridView);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox4.Location = new System.Drawing.Point(507, 305);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(497, 300);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "groupBox4";
             // 
-            // dataGridViewTextBoxColumn10
+            // признак_льготComboBox
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Код врача";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Код врача";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Visible = false;
+            this.признак_льготComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.признак_льготComboBox.FormattingEnabled = true;
+            this.признак_льготComboBox.Items.AddRange(new object[] {
+            "Да ",
+            "Нет"});
+            this.признак_льготComboBox.Location = new System.Drawing.Point(220, 260);
+            this.признак_льготComboBox.Name = "признак_льготComboBox";
+            this.признак_льготComboBox.Size = new System.Drawing.Size(200, 32);
+            this.признак_льготComboBox.TabIndex = 13;
             // 
-            // dataGridViewTextBoxColumn11
+            // телефонTextBox
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Лечащий врач";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Лечащий врач";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.телефонTextBox.Location = new System.Drawing.Point(220, 225);
+            this.телефонTextBox.Name = "телефонTextBox";
+            this.телефонTextBox.Size = new System.Drawing.Size(200, 29);
+            this.телефонTextBox.TabIndex = 11;
             // 
-            // dataGridViewTextBoxColumn12
+            // полComboBox
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Дата и время приёма";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Дата и время приёма";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.полComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.полComboBox.FormattingEnabled = true;
+            this.полComboBox.Items.AddRange(new object[] {
+            "Муж.",
+            "Жен."});
+            this.полComboBox.Location = new System.Drawing.Point(220, 187);
+            this.полComboBox.Name = "полComboBox";
+            this.полComboBox.Size = new System.Drawing.Size(200, 32);
+            this.полComboBox.TabIndex = 9;
             // 
-            // groupBox1
+            // дата_рожденияDateTimePicker
             // 
-            this.groupBox1.Controls.Add(this.пациентDataGridView);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.groupBox1.Location = new System.Drawing.Point(4, 30);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1000, 269);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Информация о пациенте:";
+            this.дата_рожденияDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.дата_рожденияDateTimePicker.Location = new System.Drawing.Point(220, 152);
+            this.дата_рожденияDateTimePicker.Name = "дата_рожденияDateTimePicker";
+            this.дата_рожденияDateTimePicker.Size = new System.Drawing.Size(200, 29);
+            this.дата_рожденияDateTimePicker.TabIndex = 7;
             // 
-            // groupBox2
+            // адрес_проживанияTextBox
             // 
-            this.groupBox2.Controls.Add(this.списокРегистратурыDataGridView);
-            this.groupBox2.Location = new System.Drawing.Point(4, 305);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(386, 337);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.адрес_проживанияTextBox.Location = new System.Drawing.Point(220, 117);
+            this.адрес_проживанияTextBox.Name = "адрес_проживанияTextBox";
+            this.адрес_проживанияTextBox.Size = new System.Drawing.Size(200, 29);
+            this.адрес_проживанияTextBox.TabIndex = 5;
+            // 
+            // фИОTextBox
+            // 
+            this.фИОTextBox.Location = new System.Drawing.Point(220, 82);
+            this.фИОTextBox.Name = "фИОTextBox";
+            this.фИОTextBox.Size = new System.Drawing.Size(200, 29);
+            this.фИОTextBox.TabIndex = 3;
             // 
             // groupBox3
             // 
@@ -345,71 +352,257 @@
             this.groupBox3.Controls.Add(признак_льготLabel);
             this.groupBox3.Controls.Add(this.признак_льготComboBox);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(1010, 132);
+            this.groupBox3.Location = new System.Drawing.Point(1447, 171);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(456, 360);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Добавить нового пациента:";
             // 
-            // фИОTextBox
+            // groupBox2
             // 
-            this.фИОTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.пациентBindingSource, "ФИО", true));
-            this.фИОTextBox.Location = new System.Drawing.Point(220, 82);
-            this.фИОTextBox.Name = "фИОTextBox";
-            this.фИОTextBox.Size = new System.Drawing.Size(200, 29);
-            this.фИОTextBox.TabIndex = 3;
+            this.groupBox2.Controls.Add(this.списокРегистратурыDataGridView);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox2.Location = new System.Drawing.Point(4, 305);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(497, 300);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
             // 
-            // адрес_проживанияTextBox
+            // списокРегистратурыDataGridView
             // 
-            this.адрес_проживанияTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.пациентBindingSource, "Адрес проживания", true));
-            this.адрес_проживанияTextBox.Location = new System.Drawing.Point(220, 117);
-            this.адрес_проживанияTextBox.Name = "адрес_проживанияTextBox";
-            this.адрес_проживанияTextBox.Size = new System.Drawing.Size(200, 29);
-            this.адрес_проживанияTextBox.TabIndex = 5;
+            this.списокРегистратурыDataGridView.AllowUserToAddRows = false;
+            this.списокРегистратурыDataGridView.AllowUserToDeleteRows = false;
+            this.списокРегистратурыDataGridView.AutoGenerateColumns = false;
+            this.списокРегистратурыDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.списокРегистратурыDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.списокРегистратурыDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.списокРегистратурыDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.кодПациентаDataGridViewTextBoxColumn1,
+            this.пациентDataGridViewTextBoxColumn,
+            this.кодВрачаDataGridViewTextBoxColumn,
+            this.врачDataGridViewTextBoxColumn,
+            this.датаИВремяПриёмаDataGridViewTextBoxColumn,
+            this.RegistryChangeColumn,
+            this.RegistryDeleteColumn});
+            this.списокРегистратурыDataGridView.DataSource = this.списокРегистратурыBindingSource;
+            this.списокРегистратурыDataGridView.Location = new System.Drawing.Point(6, 22);
+            this.списокРегистратурыDataGridView.Name = "списокРегистратурыDataGridView";
+            this.списокРегистратурыDataGridView.ReadOnly = true;
+            this.списокРегистратурыDataGridView.RowHeadersVisible = false;
+            this.списокРегистратурыDataGridView.RowTemplate.Height = 24;
+            this.списокРегистратурыDataGridView.Size = new System.Drawing.Size(483, 272);
+            this.списокРегистратурыDataGridView.TabIndex = 0;
+            this.списокРегистратурыDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.списокРегистратурыDataGridView_CellClick);
+            this.списокРегистратурыDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.списокРегистратурыDataGridView_CellContentClick);
             // 
-            // дата_рожденияDateTimePicker
+            // idDataGridViewTextBoxColumn
             // 
-            this.дата_рожденияDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.пациентBindingSource, "Дата рождения", true));
-            this.дата_рожденияDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.дата_рожденияDateTimePicker.Location = new System.Drawing.Point(220, 152);
-            this.дата_рожденияDateTimePicker.Name = "дата_рожденияDateTimePicker";
-            this.дата_рожденияDateTimePicker.Size = new System.Drawing.Size(200, 29);
-            this.дата_рожденияDateTimePicker.TabIndex = 7;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
-            // полComboBox
+            // кодПациентаDataGridViewTextBoxColumn1
             // 
-            this.полComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.пациентBindingSource, "Пол", true));
-            this.полComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.полComboBox.FormattingEnabled = true;
-            this.полComboBox.Items.AddRange(new object[] {
-            "Муж.",
-            "Жен."});
-            this.полComboBox.Location = new System.Drawing.Point(220, 187);
-            this.полComboBox.Name = "полComboBox";
-            this.полComboBox.Size = new System.Drawing.Size(200, 32);
-            this.полComboBox.TabIndex = 9;
+            this.кодПациентаDataGridViewTextBoxColumn1.DataPropertyName = "Код пациента";
+            this.кодПациентаDataGridViewTextBoxColumn1.HeaderText = "Код пациента";
+            this.кодПациентаDataGridViewTextBoxColumn1.Name = "кодПациентаDataGridViewTextBoxColumn1";
+            this.кодПациентаDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.кодПациентаDataGridViewTextBoxColumn1.Visible = false;
             // 
-            // телефонTextBox
+            // пациентDataGridViewTextBoxColumn
             // 
-            this.телефонTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.пациентBindingSource, "Телефон", true));
-            this.телефонTextBox.Location = new System.Drawing.Point(220, 225);
-            this.телефонTextBox.Name = "телефонTextBox";
-            this.телефонTextBox.Size = new System.Drawing.Size(200, 29);
-            this.телефонTextBox.TabIndex = 11;
+            this.пациентDataGridViewTextBoxColumn.DataPropertyName = "Пациент";
+            this.пациентDataGridViewTextBoxColumn.HeaderText = "Пациент";
+            this.пациентDataGridViewTextBoxColumn.Name = "пациентDataGridViewTextBoxColumn";
+            this.пациентDataGridViewTextBoxColumn.ReadOnly = true;
+            this.пациентDataGridViewTextBoxColumn.Visible = false;
             // 
-            // признак_льготComboBox
+            // кодВрачаDataGridViewTextBoxColumn
             // 
-            this.признак_льготComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.пациентBindingSource, "Признак льгот", true));
-            this.признак_льготComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.признак_льготComboBox.FormattingEnabled = true;
-            this.признак_льготComboBox.Items.AddRange(new object[] {
-            "Да ",
-            "Нет"});
-            this.признак_льготComboBox.Location = new System.Drawing.Point(220, 260);
-            this.признак_льготComboBox.Name = "признак_льготComboBox";
-            this.признак_льготComboBox.Size = new System.Drawing.Size(200, 32);
-            this.признак_льготComboBox.TabIndex = 13;
+            this.кодВрачаDataGridViewTextBoxColumn.DataPropertyName = "Код врача";
+            this.кодВрачаDataGridViewTextBoxColumn.HeaderText = "Код врача";
+            this.кодВрачаDataGridViewTextBoxColumn.Name = "кодВрачаDataGridViewTextBoxColumn";
+            this.кодВрачаDataGridViewTextBoxColumn.ReadOnly = true;
+            this.кодВрачаDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // врачDataGridViewTextBoxColumn
+            // 
+            this.врачDataGridViewTextBoxColumn.DataPropertyName = "Врач";
+            this.врачDataGridViewTextBoxColumn.FillWeight = 230.3357F;
+            this.врачDataGridViewTextBoxColumn.HeaderText = "Врач";
+            this.врачDataGridViewTextBoxColumn.Name = "врачDataGridViewTextBoxColumn";
+            this.врачDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // датаИВремяПриёмаDataGridViewTextBoxColumn
+            // 
+            this.датаИВремяПриёмаDataGridViewTextBoxColumn.DataPropertyName = "Дата и время приёма";
+            this.датаИВремяПриёмаDataGridViewTextBoxColumn.FillWeight = 105F;
+            this.датаИВремяПриёмаDataGridViewTextBoxColumn.HeaderText = "Приём";
+            this.датаИВремяПриёмаDataGridViewTextBoxColumn.Name = "датаИВремяПриёмаDataGridViewTextBoxColumn";
+            this.датаИВремяПриёмаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // RegistryChangeColumn
+            // 
+            this.RegistryChangeColumn.FillWeight = 18.5F;
+            this.RegistryChangeColumn.HeaderText = "Редактировать";
+            this.RegistryChangeColumn.Image = global::Polyclinic.Properties.Resources.edit_icon;
+            this.RegistryChangeColumn.Name = "RegistryChangeColumn";
+            this.RegistryChangeColumn.ReadOnly = true;
+            this.RegistryChangeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // RegistryDeleteColumn
+            // 
+            this.RegistryDeleteColumn.FillWeight = 18.5F;
+            this.RegistryDeleteColumn.HeaderText = "Удалить";
+            this.RegistryDeleteColumn.Image = global::Polyclinic.Properties.Resources.delete_icon;
+            this.RegistryDeleteColumn.Name = "RegistryDeleteColumn";
+            this.RegistryDeleteColumn.ReadOnly = true;
+            this.RegistryDeleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // списокРегистратурыBindingSource
+            // 
+            this.списокРегистратурыBindingSource.DataMember = "FK_Пациент_СписокРегистратуры";
+            this.списокРегистратурыBindingSource.DataSource = this.пациентBindingSource;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.пациентDataGridView);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.groupBox1.Location = new System.Drawing.Point(4, 30);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1000, 269);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Информация о пациенте:";
+            // 
+            // пациентDataGridView
+            // 
+            this.пациентDataGridView.AllowUserToAddRows = false;
+            this.пациентDataGridView.AllowUserToDeleteRows = false;
+            this.пациентDataGridView.AutoGenerateColumns = false;
+            this.пациентDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.пациентDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.пациентDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.пациентDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.кодПациентаDataGridViewTextBoxColumn,
+            this.фИОDataGridViewTextBoxColumn,
+            this.адресПроживанияDataGridViewTextBoxColumn,
+            this.датаРожденияDataGridViewTextBoxColumn,
+            this.полDataGridViewTextBoxColumn,
+            this.телефонDataGridViewTextBoxColumn,
+            this.признакЛьготDataGridViewTextBoxColumn,
+            this.PatientChangeColumn,
+            this.PatientDeleteColumn});
+            this.пациентDataGridView.DataSource = this.пациентBindingSource;
+            this.пациентDataGridView.Location = new System.Drawing.Point(6, 25);
+            this.пациентDataGridView.Name = "пациентDataGridView";
+            this.пациентDataGridView.ReadOnly = true;
+            this.пациентDataGridView.RowHeadersVisible = false;
+            this.пациентDataGridView.RowTemplate.Height = 24;
+            this.пациентDataGridView.Size = new System.Drawing.Size(988, 238);
+            this.пациентDataGridView.TabIndex = 1;
+            this.пациентDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.пациентDataGridView_CellContentClick);
+            // 
+            // кодПациентаDataGridViewTextBoxColumn
+            // 
+            this.кодПациентаDataGridViewTextBoxColumn.DataPropertyName = "Код пациента";
+            this.кодПациентаDataGridViewTextBoxColumn.HeaderText = "Код пациента";
+            this.кодПациентаDataGridViewTextBoxColumn.Name = "кодПациентаDataGridViewTextBoxColumn";
+            this.кодПациентаDataGridViewTextBoxColumn.ReadOnly = true;
+            this.кодПациентаDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // фИОDataGridViewTextBoxColumn
+            // 
+            this.фИОDataGridViewTextBoxColumn.DataPropertyName = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.FillWeight = 296.1124F;
+            this.фИОDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.Name = "фИОDataGridViewTextBoxColumn";
+            this.фИОDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // адресПроживанияDataGridViewTextBoxColumn
+            // 
+            this.адресПроживанияDataGridViewTextBoxColumn.DataPropertyName = "Адрес проживания";
+            this.адресПроживанияDataGridViewTextBoxColumn.FillWeight = 140F;
+            this.адресПроживанияDataGridViewTextBoxColumn.HeaderText = "Адрес проживания";
+            this.адресПроживанияDataGridViewTextBoxColumn.Name = "адресПроживанияDataGridViewTextBoxColumn";
+            this.адресПроживанияDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // датаРожденияDataGridViewTextBoxColumn
+            // 
+            this.датаРожденияDataGridViewTextBoxColumn.DataPropertyName = "Дата рождения";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.датаРожденияDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.датаРожденияDataGridViewTextBoxColumn.FillWeight = 96.58907F;
+            this.датаРожденияDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            this.датаРожденияDataGridViewTextBoxColumn.Name = "датаРожденияDataGridViewTextBoxColumn";
+            this.датаРожденияDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // полDataGridViewTextBoxColumn
+            // 
+            this.полDataGridViewTextBoxColumn.DataPropertyName = "Пол";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.полDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.полDataGridViewTextBoxColumn.FillWeight = 40F;
+            this.полDataGridViewTextBoxColumn.HeaderText = "Пол";
+            this.полDataGridViewTextBoxColumn.Name = "полDataGridViewTextBoxColumn";
+            this.полDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // телефонDataGridViewTextBoxColumn
+            // 
+            this.телефонDataGridViewTextBoxColumn.DataPropertyName = "Телефон";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.телефонDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.телефонDataGridViewTextBoxColumn.FillWeight = 90F;
+            this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
+            this.телефонDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // признакЛьготDataGridViewTextBoxColumn
+            // 
+            this.признакЛьготDataGridViewTextBoxColumn.DataPropertyName = "Признак льгот";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.признакЛьготDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.признакЛьготDataGridViewTextBoxColumn.FillWeight = 56F;
+            this.признакЛьготDataGridViewTextBoxColumn.HeaderText = "Льготы";
+            this.признакЛьготDataGridViewTextBoxColumn.Name = "признакЛьготDataGridViewTextBoxColumn";
+            this.признакЛьготDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // PatientChangeColumn
+            // 
+            this.PatientChangeColumn.FillWeight = 18.5F;
+            this.PatientChangeColumn.HeaderText = "Редактировать";
+            this.PatientChangeColumn.Image = global::Polyclinic.Properties.Resources.edit_icon;
+            this.PatientChangeColumn.Name = "PatientChangeColumn";
+            this.PatientChangeColumn.ReadOnly = true;
+            this.PatientChangeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // PatientDeleteColumn
+            // 
+            this.PatientDeleteColumn.FillWeight = 18.5F;
+            this.PatientDeleteColumn.HeaderText = "Удалить";
+            this.PatientDeleteColumn.Image = global::Polyclinic.Properties.Resources.delete_icon;
+            this.PatientDeleteColumn.Name = "PatientDeleteColumn";
+            this.PatientDeleteColumn.ReadOnly = true;
+            this.PatientDeleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // пациентTableAdapter
             // 
@@ -418,7 +611,7 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.UpdateOrder = Polyclinic.ПоликлиникаDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = Polyclinic.PolyDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.Амбулаторная_картаTableAdapter = null;
             this.tableAdapterManager.ВрачиTableAdapter = null;
             this.tableAdapterManager.ДиагнозыTableAdapter = null;
@@ -430,167 +623,272 @@
             // 
             this.списокРегистратурыTableAdapter.ClearBeforeFill = true;
             // 
-            // groupBox4
+            // регистратураTableAdapter
             // 
-            this.groupBox4.Controls.Add(this.схема_леченияDataGridView);
-            this.groupBox4.Location = new System.Drawing.Point(411, 305);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(593, 301);
-            this.groupBox4.TabIndex = 6;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            this.регистратураTableAdapter.ClearBeforeFill = true;
             // 
-            // схема_леченияBindingSource
+            // врачиBindingSource
             // 
-            this.схема_леченияBindingSource.DataMember = "Пациент_Схема лечения";
-            this.схема_леченияBindingSource.DataSource = this.пациентBindingSource;
+            this.врачиBindingSource.DataMember = "Врачи";
+            this.врачиBindingSource.DataSource = this.polyDataSet;
             // 
-            // схема_леченияTableAdapter
+            // врачиTableAdapter
             // 
-            this.схема_леченияTableAdapter.ClearBeforeFill = true;
+            this.врачиTableAdapter.ClearBeforeFill = true;
             // 
-            // схема_леченияDataGridView
+            // врачиDataGridView
             // 
-            this.схема_леченияDataGridView.AutoGenerateColumns = false;
-            this.схема_леченияDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.схема_леченияDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17});
-            this.схема_леченияDataGridView.DataSource = this.схема_леченияBindingSource;
-            this.схема_леченияDataGridView.Location = new System.Drawing.Point(36, 28);
-            this.схема_леченияDataGridView.Name = "схема_леченияDataGridView";
-            this.схема_леченияDataGridView.Size = new System.Drawing.Size(537, 159);
-            this.схема_леченияDataGridView.TabIndex = 0;
+            this.врачиDataGridView.AutoGenerateColumns = false;
+            this.врачиDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.врачиDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.врачиDataGridView.DataSource = this.врачиBindingSource;
+            this.врачиDataGridView.Location = new System.Drawing.Point(1174, 150);
+            this.врачиDataGridView.Name = "врачиDataGridView";
+            this.врачиDataGridView.Size = new System.Drawing.Size(472, 220);
+            this.врачиDataGridView.TabIndex = 15;
             // 
-            // dataGridViewTextBoxColumn13
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Код пациента";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Код пациента";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Visible = false;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Код врача";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Код врача";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn14
+            // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Код врача";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Код врача";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Visible = false;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ФИО";
+            this.dataGridViewTextBoxColumn2.HeaderText = "ФИО";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridViewTextBoxColumn15
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Код диагноза";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Код диагноза";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Код категории специальности";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Код категории специальности";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // dataGridViewTextBoxColumn16
+            // RegistryGroup
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Наименование";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Наименование";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.RegistryGroup.Controls.Add(this.RegistryCancel);
+            this.RegistryGroup.Controls.Add(this.RegistrySave);
+            this.RegistryGroup.Controls.Add(код_пациентаLabel);
+            this.RegistryGroup.Controls.Add(this.код_пациентаComboBox);
+            this.RegistryGroup.Controls.Add(код_врачаLabel);
+            this.RegistryGroup.Controls.Add(this.код_врачаComboBox);
+            this.RegistryGroup.Controls.Add(дата_и_время_приёмаLabel);
+            this.RegistryGroup.Controls.Add(this.дата_и_время_приёмаDateTimePicker);
+            this.RegistryGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RegistryGroup.Location = new System.Drawing.Point(1127, 518);
+            this.RegistryGroup.Name = "RegistryGroup";
+            this.RegistryGroup.Size = new System.Drawing.Size(534, 245);
+            this.RegistryGroup.TabIndex = 16;
+            this.RegistryGroup.TabStop = false;
+            this.RegistryGroup.Text = "Регистраутра";
             // 
-            // dataGridViewTextBoxColumn17
+            // RegistryCancel
             // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Описание схемы лечения и назначений";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Описание схемы лечения и назначений";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.RegistryCancel.Location = new System.Drawing.Point(283, 187);
+            this.RegistryCancel.Name = "RegistryCancel";
+            this.RegistryCancel.Size = new System.Drawing.Size(125, 32);
+            this.RegistryCancel.TabIndex = 9;
+            this.RegistryCancel.Text = "Отмена";
+            this.RegistryCancel.UseVisualStyleBackColor = true;
+            this.RegistryCancel.Click += new System.EventHandler(this.RegistryCancel_Click);
             // 
-            // button1
+            // RegistrySave
             // 
-            this.button1.Location = new System.Drawing.Point(1020, 46);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.RegistrySave.Location = new System.Drawing.Point(122, 187);
+            this.RegistrySave.Name = "RegistrySave";
+            this.RegistrySave.Size = new System.Drawing.Size(125, 32);
+            this.RegistrySave.TabIndex = 8;
+            this.RegistrySave.Text = "Сохранить";
+            this.RegistrySave.UseVisualStyleBackColor = true;
+            this.RegistrySave.Click += new System.EventHandler(this.RegistrySave_Click);
             // 
-            // button2
+            // код_пациентаComboBox
             // 
-            this.button2.Location = new System.Drawing.Point(1020, 75);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.код_пациентаComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.регистратураBindingSource, "Код пациента", true));
+            this.код_пациентаComboBox.DataSource = this.пациентBindingSource;
+            this.код_пациентаComboBox.DisplayMember = "ФИО";
+            this.код_пациентаComboBox.FormattingEnabled = true;
+            this.код_пациентаComboBox.Location = new System.Drawing.Point(203, 55);
+            this.код_пациентаComboBox.Name = "код_пациентаComboBox";
+            this.код_пациентаComboBox.Size = new System.Drawing.Size(300, 28);
+            this.код_пациентаComboBox.TabIndex = 3;
+            this.код_пациентаComboBox.ValueMember = "Код пациента";
+            // 
+            // код_врачаComboBox
+            // 
+            this.код_врачаComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.регистратураBindingSource, "Код врача", true));
+            this.код_врачаComboBox.DataSource = this.врачиBindingSource;
+            this.код_врачаComboBox.DisplayMember = "ФИО";
+            this.код_врачаComboBox.FormattingEnabled = true;
+            this.код_врачаComboBox.Location = new System.Drawing.Point(203, 89);
+            this.код_врачаComboBox.Name = "код_врачаComboBox";
+            this.код_врачаComboBox.Size = new System.Drawing.Size(300, 28);
+            this.код_врачаComboBox.TabIndex = 5;
+            this.код_врачаComboBox.ValueMember = "Код врача";
+            // 
+            // дата_и_время_приёмаDateTimePicker
+            // 
+            this.дата_и_время_приёмаDateTimePicker.CustomFormat = "d.MM.yyyy HH:m";
+            this.дата_и_время_приёмаDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.регистратураBindingSource, "Дата и время приёма", true));
+            this.дата_и_время_приёмаDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.дата_и_время_приёмаDateTimePicker.Location = new System.Drawing.Point(203, 123);
+            this.дата_и_время_приёмаDateTimePicker.Name = "дата_и_время_приёмаDateTimePicker";
+            this.дата_и_время_приёмаDateTimePicker.Size = new System.Drawing.Size(300, 26);
+            this.дата_и_время_приёмаDateTimePicker.TabIndex = 7;
+            // 
+            // схемаЛеченияBindingSource
+            // 
+            this.схемаЛеченияBindingSource.DataMember = "Пациент_СхемаЛечения";
+            this.схемаЛеченияBindingSource.DataSource = this.пациентBindingSource;
+            // 
+            // схемаЛеченияTableAdapter
+            // 
+            this.схемаЛеченияTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // кодПациентаDataGridViewTextBoxColumn2
+            // 
+            this.кодПациентаDataGridViewTextBoxColumn2.DataPropertyName = "Код пациента";
+            this.кодПациентаDataGridViewTextBoxColumn2.HeaderText = "Код пациента";
+            this.кодПациентаDataGridViewTextBoxColumn2.Name = "кодПациентаDataGridViewTextBoxColumn2";
+            this.кодПациентаDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // кодВрачаDataGridViewTextBoxColumn1
+            // 
+            this.кодВрачаDataGridViewTextBoxColumn1.DataPropertyName = "Код врача";
+            this.кодВрачаDataGridViewTextBoxColumn1.HeaderText = "Код врача";
+            this.кодВрачаDataGridViewTextBoxColumn1.Name = "кодВрачаDataGridViewTextBoxColumn1";
+            this.кодВрачаDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // кодДиагнозаDataGridViewTextBoxColumn
+            // 
+            this.кодДиагнозаDataGridViewTextBoxColumn.DataPropertyName = "Код диагноза";
+            this.кодДиагнозаDataGridViewTextBoxColumn.HeaderText = "Код диагноза";
+            this.кодДиагнозаDataGridViewTextBoxColumn.Name = "кодДиагнозаDataGridViewTextBoxColumn";
+            // 
+            // наименованиеDataGridViewTextBoxColumn
+            // 
+            this.наименованиеDataGridViewTextBoxColumn.DataPropertyName = "Наименование";
+            this.наименованиеDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.наименованиеDataGridViewTextBoxColumn.Name = "наименованиеDataGridViewTextBoxColumn";
+            // 
+            // описаниеСхемыЛеченияИНазначенийDataGridViewTextBoxColumn
+            // 
+            this.описаниеСхемыЛеченияИНазначенийDataGridViewTextBoxColumn.DataPropertyName = "Описание схемы лечения и назначений";
+            this.описаниеСхемыЛеченияИНазначенийDataGridViewTextBoxColumn.HeaderText = "Описание схемы лечения и назначений";
+            this.описаниеСхемыЛеченияИНазначенийDataGridViewTextBoxColumn.Name = "описаниеСхемыЛеченияИНазначенийDataGridViewTextBoxColumn";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1508, 681);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.RegistryGroup);
+            this.Controls.Add(this.врачиDataGridView);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.пациентDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.регистратураBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.пациентBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.поликлиникаDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.списокРегистратурыBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.списокРегистратурыDataGridView)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.polyDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.схема_леченияDataGridView)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.схема_леченияBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.схема_леченияDataGridView)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.списокРегистратурыDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокРегистратурыBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.пациентDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.врачиBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.врачиDataGridView)).EndInit();
+            this.RegistryGroup.ResumeLayout(false);
+            this.RegistryGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.схемаЛеченияBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private ПоликлиникаDataSet поликлиникаDataSet;
-        private System.Windows.Forms.BindingSource пациентBindingSource;
-        private ПоликлиникаDataSetTableAdapters.ПациентTableAdapter пациентTableAdapter;
-        private ПоликлиникаDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView пациентDataGridView;
-        private System.Windows.Forms.BindingSource списокРегистратурыBindingSource;
-        private ПоликлиникаDataSetTableAdapters.СписокРегистратурыTableAdapter списокРегистратурыTableAdapter;
-        private System.Windows.Forms.DataGridView списокРегистратурыDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox фИОTextBox;
-        private System.Windows.Forms.TextBox адрес_проживанияTextBox;
-        private System.Windows.Forms.DateTimePicker дата_рожденияDateTimePicker;
-        private System.Windows.Forms.ComboBox полComboBox;
-        private System.Windows.Forms.TextBox телефонTextBox;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView схема_леченияDataGridView;
+        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox признак_льготComboBox;
+        private System.Windows.Forms.TextBox телефонTextBox;
+        private System.Windows.Forms.ComboBox полComboBox;
+        private System.Windows.Forms.DateTimePicker дата_рожденияDateTimePicker;
+        private System.Windows.Forms.TextBox адрес_проживанияTextBox;
+        private System.Windows.Forms.TextBox фИОTextBox;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView пациентDataGridView;
+        private System.Windows.Forms.DataGridView списокРегистратурыDataGridView;
+        private PolyDataSet polyDataSet;
+        private System.Windows.Forms.BindingSource пациентBindingSource;
+        private PolyDataSetTableAdapters.ПациентTableAdapter пациентTableAdapter;
+        private PolyDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private PolyDataSetTableAdapters.СписокРегистратурыTableAdapter списокРегистратурыTableAdapter;
+        private PolyDataSetTableAdapters.РегистратураTableAdapter регистратураTableAdapter;
+        private System.Windows.Forms.BindingSource врачиBindingSource;
+        private PolyDataSetTableAdapters.ВрачиTableAdapter врачиTableAdapter;
+        private System.Windows.Forms.DataGridView врачиDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewLinkColumn Column1;
-        private System.Windows.Forms.DataGridViewLinkColumn Column2;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.BindingSource схема_леченияBindingSource;
-        private ПоликлиникаDataSetTableAdapters.Схема_леченияTableAdapter схема_леченияTableAdapter;
-        private System.Windows.Forms.DataGridView схема_леченияDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.BindingSource списокРегистратурыBindingSource;
+        private System.Windows.Forms.BindingSource регистратураBindingSource;
+        private System.Windows.Forms.GroupBox RegistryGroup;
+        private System.Windows.Forms.ComboBox код_пациентаComboBox;
+        private System.Windows.Forms.ComboBox код_врачаComboBox;
+        private System.Windows.Forms.DateTimePicker дата_и_время_приёмаDateTimePicker;
+        private System.Windows.Forms.Button RegistryCancel;
+        private System.Windows.Forms.Button RegistrySave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодПациентаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn адресПроживанияDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn датаРожденияDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn полDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn телефонDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn признакЛьготDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn PatientChangeColumn;
+        private System.Windows.Forms.DataGridViewImageColumn PatientDeleteColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодПациентаDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn пациентDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодВрачаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn врачDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn датаИВремяПриёмаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn RegistryChangeColumn;
+        private System.Windows.Forms.DataGridViewImageColumn RegistryDeleteColumn;
+        private System.Windows.Forms.BindingSource схемаЛеченияBindingSource;
+        private PolyDataSetTableAdapters.СхемаЛеченияTableAdapter схемаЛеченияTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодПациентаDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодВрачаDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодДиагнозаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn описаниеСхемыЛеченияИНазначенийDataGridViewTextBoxColumn;
     }
 }
 
