@@ -136,5 +136,10 @@ namespace Polyclinic
         {
             регистратураBindingSource.Position = e.RowIndex;
         }
+
+        private void списокРегистратурыDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            списокРегистратурыDataGridView.Cursor = e.ColumnIndex > 5 ? Cursors.Hand : Cursors.Default;
+        }
     }
 }
