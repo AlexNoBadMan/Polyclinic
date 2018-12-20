@@ -24,19 +24,37 @@ namespace Polyclinic
             регистратураBindingSource.EndEdit();
             регистратураTableAdapter.Update(polyDataSet);
             списокРегистратурыTableAdapter.Fill(polyDataSet.СписокРегистратуры);
-            //tableAdapterManager.UpdateAll(polyDataSet);
         }
 
-        private void пациентBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void SaveChanges(BindingSource bindingSource)
         {
-           /* this.Validate();
-            this.пациентBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.поликлиникаDataSet);*/
+            Validate();
+            bindingSource.EndEdit();
+            tableAdapterManager.UpdateAll(polyDataSet);
+        }
 
+        public void ChangeDisplayElements(DataGridView dataGrid, Button button, Panel panel, bool show)
+        {
+            if (show)
+            {
+                dataGrid.Visible = true;
+                button.Visible = true;
+                panel.Visible = false;
+            }
+            else
+            {
+                dataGrid.Visible = false;
+                button.Visible = false;
+                panel.Visible = true;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.Диагнозы". При необходимости она может быть перемещена или удалена.
+            this.диагнозыTableAdapter.Fill(this.polyDataSet.Диагнозы);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.Категория_врачебной_специальности". При необходимости она может быть перемещена или удалена.
+            this.категория_врачебной_специальностиTableAdapter.Fill(this.polyDataSet.Категория_врачебной_специальности);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.СхемаЛечения". При необходимости она может быть перемещена или удалена.
             this.схемаЛеченияTableAdapter.Fill(this.polyDataSet.СхемаЛечения);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.Пациент". При необходимости она может быть перемещена или удалена.
@@ -47,7 +65,31 @@ namespace Polyclinic
             this.регистратураTableAdapter.Fill(this.polyDataSet.Регистратура);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.СписокРегистратуры". При необходимости она может быть перемещена или удалена.
             this.списокРегистратурыTableAdapter.Fill(this.polyDataSet.СписокРегистратуры);
+        }
 
+
+        private void PatientAddButton_Click(object sender, EventArgs e)
+        {
+            пациентBindingSource.AddNew();
+            дата_рожденияDateTimePicker.Value = DateTime.Parse("12.12.2000");
+            ChangeDisplayElements(пациентDataGridView, PatientAddButton, PatientPanel, false);
+        }
+
+        private void PatientSaveButton_Click(object sender, EventArgs e)
+        {
+            SaveChanges(пациентBindingSource);
+            ChangeDisplayElements(пациентDataGridView, PatientAddButton, PatientPanel, true);
+        }
+
+        private void PatientCancelButton_Click(object sender, EventArgs e)
+        {
+            пациентBindingSource.CancelEdit();
+            ChangeDisplayElements(пациентDataGridView, PatientAddButton, PatientPanel, true);
+        }
+
+        private void пациентDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            пациентDataGridView.Cursor = e.ColumnIndex > 6 ? Cursors.Hand : Cursors.Default;
         }
 
         private void пациентDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -64,26 +106,15 @@ namespace Polyclinic
                 if (deleteDiaolg == DialogResult.Yes)
                 {
                     пациентDataGridView.Rows.RemoveAt(e.RowIndex);
-                    Validate();
-                    пациентBindingSource.EndEdit();
-                    tableAdapterManager.UpdateAll(polyDataSet);
-                    
+                    SaveChanges(пациентBindingSource);
                 }
                 return;
             }
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            /* пациентDataGridView.Visible = false;*/
-//             пациентBindingSource.AddNew();
-            регистратураBindingSource.AddNew();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            //пациентDataGridView.Visible = true;
+            if (e.ColumnIndex == 7)
+            {
+                ChangeDisplayElements(пациентDataGridView, PatientAddButton, PatientPanel, false);
+            }
         }
 
         private void списокРегистратурыDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -92,44 +123,42 @@ namespace Polyclinic
             {
                 return;
             }
+
             if (e.ColumnIndex == 7)
             {
-               /* var cell = списокРегистратурыDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                if (cell is DataGridViewLinkCell && cell.Value.Equals("Удалить"))
-                {*/
-                    var deleteDiaolg = MessageBox.Show($"Вы действительно хотите удалить данные о пациенте",
-                                                            "Внимание!", MessageBoxButtons.YesNo);
-                    if (deleteDiaolg == DialogResult.Yes)
-                    {
-                        var id = Convert.ToInt32(списокРегистратурыDataGridView.Rows[e.RowIndex].Cells[0].Value);
-                        polyDataSet.Регистратура.First(x => x.id == id).Delete();
-                        //polyDataSet.Регистратура.Rows.Remove(www);
-                        //www.Delete();
-                        //
-                        //регистратураDataGridView.Rows.RemoveAt(e.RowIndex);
-                        //списокРегистратурыTableAdapter.Update();
-                        Validate();
-                        регистратураBindingSource.EndEdit();
-                        списокРегистратурыBindingSource.EndEdit();
-                        регистратураTableAdapter.Update(polyDataSet);
-                        //tableAdapterManager.UpdateAll(polyDataSet);
-                        списокРегистратурыTableAdapter.Fill(polyDataSet.СписокРегистратуры);//списокРегистратурыDataGridView.Rows.RemoveAt(e.RowIndex);
-                                                                                            //                        polyDataSet.AcceptChanges();
-                    }
-                    return;
-                //}
+                var deleteDiaolg = MessageBox.Show($"Вы действительно хотите удалить данные о пациенте",
+                                                        "Внимание!", MessageBoxButtons.YesNo);
+                if (deleteDiaolg == DialogResult.Yes)
+                {
+                    var id = Convert.ToInt32(списокРегистратурыDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                    polyDataSet.Регистратура.First(x => x.id == id).Delete();
+                    RegistrySaveChanges();
+                }
+                return;
             }
-
+            if (e.ColumnIndex == 6)
+            {
+                ChangeDisplayElements(списокРегистратурыDataGridView, RegistryAddButton, RegistryPanel, false);
+            }
         }
 
-        private void RegistrySave_Click(object sender, EventArgs e)
+        private void RegistryAddButton_Click(object sender, EventArgs e)
         {
-            RegistrySaveChanges();
+            регистратураBindingSource.AddNew();
+            дата_и_время_приёмаDateTimePicker.Value = DateTime.Now;
+            ChangeDisplayElements(списокРегистратурыDataGridView, RegistryAddButton, RegistryPanel, false);
         }
 
-        private void RegistryCancel_Click(object sender, EventArgs e)
+        private void RegistryCancelButton_Click(object sender, EventArgs e)
         {
             регистратураBindingSource.CancelEdit();
+            ChangeDisplayElements(списокРегистратурыDataGridView, RegistryAddButton, RegistryPanel, true);
+        }
+
+        private void RegistrySaveButton_Click(object sender, EventArgs e)
+        {
+            RegistrySaveChanges();
+            ChangeDisplayElements(списокРегистратурыDataGridView, RegistryAddButton, RegistryPanel, true);
         }
 
         private void списокРегистратурыDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

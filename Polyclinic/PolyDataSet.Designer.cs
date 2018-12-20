@@ -2442,13 +2442,13 @@ namespace Polyclinic {
             
             private global::System.Data.DataColumn columnКод_пациента;
             
-            private global::System.Data.DataColumn columnПациент;
-            
             private global::System.Data.DataColumn columnКод_врача;
             
-            private global::System.Data.DataColumn columnВрач;
-            
             private global::System.Data.DataColumn columnДата_и_время_приёма;
+            
+            private global::System.Data.DataColumn columnФИО;
+            
+            private global::System.Data.DataColumn columnНаименование;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -2501,14 +2501,6 @@ namespace Polyclinic {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ПациентColumn {
-                get {
-                    return this.columnПациент;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn Код_врачаColumn {
                 get {
                     return this.columnКод_врача;
@@ -2517,17 +2509,25 @@ namespace Polyclinic {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ВрачColumn {
+            public global::System.Data.DataColumn Дата_и_время_приёмаColumn {
                 get {
-                    return this.columnВрач;
+                    return this.columnДата_и_время_приёма;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Дата_и_время_приёмаColumn {
+            public global::System.Data.DataColumn ФИОColumn {
                 get {
-                    return this.columnДата_и_время_приёма;
+                    return this.columnФИО;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn НаименованиеColumn {
+                get {
+                    return this.columnНаименование;
                 }
             }
             
@@ -2568,20 +2568,20 @@ namespace Polyclinic {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public СписокРегистратурыRow AddСписокРегистратурыRow(int id, ПациентRow parentПациентRowByFK_Пациент_СписокРегистратуры, string Пациент, ВрачиRow parentВрачиRowByВрачи_СписокРегистратуры, string Врач, System.DateTime Дата_и_время_приёма) {
+            public СписокРегистратурыRow AddСписокРегистратурыRow(int id, ПациентRow parentПациентRowByFK_Пациент_СписокРегистратуры, ВрачиRow parentВрачиRowByВрачи_СписокРегистратуры, System.DateTime Дата_и_время_приёма, string ФИО, string Наименование) {
                 СписокРегистратурыRow rowСписокРегистратурыRow = ((СписокРегистратурыRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         null,
-                        Пациент,
                         null,
-                        Врач,
-                        Дата_и_время_приёма};
+                        Дата_и_время_приёма,
+                        ФИО,
+                        Наименование};
                 if ((parentПациентRowByFK_Пациент_СписокРегистратуры != null)) {
                     columnValuesArray[1] = parentПациентRowByFK_Пациент_СписокРегистратуры[0];
                 }
                 if ((parentВрачиRowByВрачи_СписокРегистратуры != null)) {
-                    columnValuesArray[3] = parentВрачиRowByВрачи_СписокРегистратуры[0];
+                    columnValuesArray[2] = parentВрачиRowByВрачи_СписокРегистратуры[0];
                 }
                 rowСписокРегистратурыRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowСписокРегистратурыRow);
@@ -2614,10 +2614,10 @@ namespace Polyclinic {
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
                 this.columnКод_пациента = base.Columns["Код пациента"];
-                this.columnПациент = base.Columns["Пациент"];
                 this.columnКод_врача = base.Columns["Код врача"];
-                this.columnВрач = base.Columns["Врач"];
                 this.columnДата_и_время_приёма = base.Columns["Дата и время приёма"];
+                this.columnФИО = base.Columns["ФИО"];
+                this.columnНаименование = base.Columns["Наименование"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2627,20 +2627,20 @@ namespace Polyclinic {
                 base.Columns.Add(this.columnid);
                 this.columnКод_пациента = new global::System.Data.DataColumn("Код пациента", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКод_пациента);
-                this.columnПациент = new global::System.Data.DataColumn("Пациент", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnПациент);
                 this.columnКод_врача = new global::System.Data.DataColumn("Код врача", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКод_врача);
-                this.columnВрач = new global::System.Data.DataColumn("Врач", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnВрач);
                 this.columnДата_и_время_приёма = new global::System.Data.DataColumn("Дата и время приёма", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnДата_и_время_приёма);
+                this.columnФИО = new global::System.Data.DataColumn("ФИО", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnФИО);
+                this.columnНаименование = new global::System.Data.DataColumn("Наименование", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnНаименование);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
-                this.columnПациент.MaxLength = 100;
-                this.columnВрач.MaxLength = 100;
+                this.columnФИО.MaxLength = 100;
+                this.columnНаименование.MaxLength = 60;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3972,22 +3972,6 @@ namespace Polyclinic {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Пациент {
-                get {
-                    try {
-                        return ((string)(this[this.tableСписокРегистратуры.ПациентColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Пациент\' в таблице \'СписокРегистратуры\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableСписокРегистратуры.ПациентColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int Код_врача {
                 get {
                     try {
@@ -3999,22 +3983,6 @@ namespace Polyclinic {
                 }
                 set {
                     this[this.tableСписокРегистратуры.Код_врачаColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Врач {
-                get {
-                    try {
-                        return ((string)(this[this.tableСписокРегистратуры.ВрачColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Врач\' в таблице \'СписокРегистратуры\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableСписокРегистратуры.ВрачColumn] = value;
                 }
             }
             
@@ -4032,6 +4000,38 @@ namespace Polyclinic {
                 }
                 set {
                     this[this.tableСписокРегистратуры.Дата_и_время_приёмаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ФИО {
+                get {
+                    try {
+                        return ((string)(this[this.tableСписокРегистратуры.ФИОColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ФИО\' в таблице \'СписокРегистратуры\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableСписокРегистратуры.ФИОColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Наименование {
+                get {
+                    try {
+                        return ((string)(this[this.tableСписокРегистратуры.НаименованиеColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Наименование\' в таблице \'СписокРегистратуры\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableСписокРегистратуры.НаименованиеColumn] = value;
                 }
             }
             
@@ -4071,18 +4071,6 @@ namespace Polyclinic {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsПациентNull() {
-                return this.IsNull(this.tableСписокРегистратуры.ПациентColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetПациентNull() {
-                this[this.tableСписокРегистратуры.ПациентColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsКод_врачаNull() {
                 return this.IsNull(this.tableСписокРегистратуры.Код_врачаColumn);
             }
@@ -4095,18 +4083,6 @@ namespace Polyclinic {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsВрачNull() {
-                return this.IsNull(this.tableСписокРегистратуры.ВрачColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetВрачNull() {
-                this[this.tableСписокРегистратуры.ВрачColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsДата_и_время_приёмаNull() {
                 return this.IsNull(this.tableСписокРегистратуры.Дата_и_время_приёмаColumn);
             }
@@ -4115,6 +4091,30 @@ namespace Polyclinic {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetДата_и_время_приёмаNull() {
                 this[this.tableСписокРегистратуры.Дата_и_время_приёмаColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsФИОNull() {
+                return this.IsNull(this.tableСписокРегистратуры.ФИОColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetФИОNull() {
+                this[this.tableСписокРегистратуры.ФИОColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsНаименованиеNull() {
+                return this.IsNull(this.tableСписокРегистратуры.НаименованиеColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetНаименованиеNull() {
+                this[this.tableСписокРегистратуры.НаименованиеColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7048,10 +7048,10 @@ SELECT id, [Код пациента], [Код врача], [Дата и врем
             tableMapping.DataSetTable = "СписокРегистратуры";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("Код пациента", "Код пациента");
-            tableMapping.ColumnMappings.Add("Пациент", "Пациент");
             tableMapping.ColumnMappings.Add("Код врача", "Код врача");
-            tableMapping.ColumnMappings.Add("Врач", "Врач");
             tableMapping.ColumnMappings.Add("Дата и время приёма", "Дата и время приёма");
+            tableMapping.ColumnMappings.Add("ФИО", "ФИО");
+            tableMapping.ColumnMappings.Add("Наименование", "Наименование");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -7068,8 +7068,8 @@ SELECT id, [Код пациента], [Код врача], [Дата и врем
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, [Код пациента], Пациент, [Код врача], Врач, [Дата и время приёма] FROM" +
-                " dbo.СписокРегистратуры";
+            this._commandCollection[0].CommandText = "SELECT id, [Код пациента], [Код врача], [Дата и время приёма], Наименование, ФИО " +
+                "FROM СписокРегистратуры";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

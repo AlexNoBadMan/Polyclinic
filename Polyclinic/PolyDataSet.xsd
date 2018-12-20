@@ -383,7 +383,7 @@ SELECT id, [Код пациента], [Код врача], [Дата и врем
               <DbSource ConnectionRef="ПоликлиникаConnectionString (Settings)" DbObjectName="dbo.СписокРегистратуры" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT id, [Код пациента], Пациент, [Код врача], Врач, [Дата и время приёма] FROM dbo.СписокРегистратуры</CommandText>
+                    <CommandText>SELECT id, [Код пациента], [Код врача], [Дата и время приёма], Наименование, ФИО FROM СписокРегистратуры</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -392,10 +392,10 @@ SELECT id, [Код пациента], [Код врача], [Дата и врем
             <Mappings>
               <Mapping SourceColumn="id" DataSetColumn="id" />
               <Mapping SourceColumn="Код пациента" DataSetColumn="Код пациента" />
-              <Mapping SourceColumn="Пациент" DataSetColumn="Пациент" />
               <Mapping SourceColumn="Код врача" DataSetColumn="Код врача" />
-              <Mapping SourceColumn="Врач" DataSetColumn="Врач" />
               <Mapping SourceColumn="Дата и время приёма" DataSetColumn="Дата и время приёма" />
+              <Mapping SourceColumn="ФИО" DataSetColumn="ФИО" />
+              <Mapping SourceColumn="Наименование" DataSetColumn="Наименование" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -546,22 +546,22 @@ SELECT id, [Код пациента], [Код врача], [Дата и врем
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
               <xs:element name="Код_x0020_пациента" msprop:Generator_ColumnVarNameInTable="columnКод_пациента" msprop:Generator_ColumnPropNameInRow="Код_пациента" msprop:Generator_ColumnPropNameInTable="Код_пациентаColumn" msprop:Generator_UserColumnName="Код пациента" type="xs:int" minOccurs="0" />
-              <xs:element name="Пациент" msprop:Generator_ColumnVarNameInTable="columnПациент" msprop:Generator_ColumnPropNameInRow="Пациент" msprop:Generator_ColumnPropNameInTable="ПациентColumn" msprop:Generator_UserColumnName="Пациент" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="Код_x0020_врача" msprop:Generator_ColumnVarNameInTable="columnКод_врача" msprop:Generator_ColumnPropNameInRow="Код_врача" msprop:Generator_ColumnPropNameInTable="Код_врачаColumn" msprop:Generator_UserColumnName="Код врача" type="xs:int" minOccurs="0" />
-              <xs:element name="Врач" msprop:Generator_ColumnVarNameInTable="columnВрач" msprop:Generator_ColumnPropNameInRow="Врач" msprop:Generator_ColumnPropNameInTable="ВрачColumn" msprop:Generator_UserColumnName="Врач" minOccurs="0">
+              <xs:element name="Дата_x0020_и_x0020_время_x0020_приёма" msprop:Generator_ColumnVarNameInTable="columnДата_и_время_приёма" msprop:Generator_ColumnPropNameInRow="Дата_и_время_приёма" msprop:Generator_ColumnPropNameInTable="Дата_и_время_приёмаColumn" msprop:Generator_UserColumnName="Дата и время приёма" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ФИО" msprop:Generator_ColumnVarNameInTable="columnФИО" msprop:Generator_ColumnPropNameInRow="ФИО" msprop:Generator_ColumnPropNameInTable="ФИОColumn" msprop:Generator_UserColumnName="ФИО" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Дата_x0020_и_x0020_время_x0020_приёма" msprop:Generator_ColumnVarNameInTable="columnДата_и_время_приёма" msprop:Generator_ColumnPropNameInRow="Дата_и_время_приёма" msprop:Generator_ColumnPropNameInTable="Дата_и_время_приёмаColumn" msprop:Generator_UserColumnName="Дата и время приёма" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Наименование" msprop:Generator_ColumnVarNameInTable="columnНаименование" msprop:Generator_ColumnPropNameInRow="Наименование" msprop:Generator_ColumnPropNameInTable="НаименованиеColumn" msprop:Generator_UserColumnName="Наименование" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
