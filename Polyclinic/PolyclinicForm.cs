@@ -11,11 +11,42 @@ using System.Windows.Forms;
 
 namespace Polyclinic
 {
-    public partial class Form1 : Form
+    public partial class PolyclinicForm : Form
     {
-        public Form1()
+        public PolyclinicForm()
         {
             InitializeComponent();
+        }
+
+        enum ResultClick
+        {
+            None,
+            Change,
+            Delete,
+            Other
+        }
+
+        private ResultClick ResultCellContenClick(DataGridViewCellEventArgs e, DataGridView dataGridView, string message)
+        {
+            if (e.ColumnIndex == dataGridView.ColumnCount - 1)
+            {
+                var deleteDiaolg = MessageBox.Show(message, "Внимание!", MessageBoxButtons.YesNo);
+                if (deleteDiaolg == DialogResult.Yes)
+                {
+                    return ResultClick.Delete;
+                }
+                return ResultClick.None;
+            }
+            if (e.ColumnIndex == dataGridView.ColumnCount - 2)
+            {
+                return ResultClick.Change;
+            }
+            return ResultClick.Other;
+        }
+
+        private void ChangeCursor(DataGridViewCellEventArgs e, DataGridView dataGridView)
+        {
+            dataGridView.Cursor = e.ColumnIndex > dataGridView.ColumnCount - 3 ? Cursors.Hand : Cursors.Default;
         }
 
         private void RegistrySaveChanges()
@@ -32,6 +63,27 @@ namespace Polyclinic
             CardBindingSource.EndEdit();
             CardTableAdapter.Update(polyDataSet);
             CardViewTableAdapter.Fill(polyDataSet.СхемаЛечения);
+        }
+
+        private void DoctorSaveChanges()
+        {
+            Validate();
+            DoctorBindingSource.EndEdit();
+            DoctorTableAdapter.Update(polyDataSet);
+        }
+
+        private void DiagnosesSaveChanges()
+        {
+            Validate();
+            DiagnosesBindingSource.EndEdit();
+            DiagnosesTableAdapter.Update(polyDataSet);
+        }
+
+        private void SpecialtySaveChanges()
+        {
+            Validate();
+            SpecialtyBindingSource.EndEdit();
+            SpecialtyTableAdapter.Update(polyDataSet);
         }
 
         private void SaveChanges(BindingSource bindingSource)
@@ -56,11 +108,11 @@ namespace Polyclinic
                 panel.Visible = true;
             }
         }
+
         public void EnableDisplayElements(bool enable)
         {
             if (enable)
             {
-                
                 ((Control)tabPage2).Enabled = true;
                 ((Control)tabPage3).Enabled = true;
                 ((Control)tabPage4).Enabled = true;
@@ -70,6 +122,24 @@ namespace Polyclinic
                 ((Control)tabPage2).Enabled = false;
                 ((Control)tabPage3).Enabled = false;
                 ((Control)tabPage4).Enabled = false;
+            }
+        }
+
+        private void EnableDisplayElements(DataGridView dataGridView, Button button, Panel panel, bool show)
+        {
+            if (show)
+            {
+                dataGridView.Enabled = true;
+                dataGridView.Height = 608;
+                button.Visible = true;
+                panel.Visible = false;
+            }
+            else
+            {
+                dataGridView.Enabled = false;
+                dataGridView.Height = 464;
+                button.Visible = false;
+                panel.Visible = true;
             }
         }
 
@@ -95,24 +165,19 @@ namespace Polyclinic
 
         private void PatientDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex < 0 || e.ColumnIndex < PatientDataGridView.ColumnCount - 2)
             {
                 return;
             }
 
-            if (e.ColumnIndex == 8)
+            var resultClick = ResultCellContenClick(e, PatientDataGridView,
+                $"Вы действительно хотите удалить данные о пациенте \"{PatientDataGridView.Rows[e.RowIndex].Cells[1].Value}\"");
+            if (resultClick == ResultClick.Delete)
             {
-                var deleteDiaolg = MessageBox.Show($"Вы действительно хотите удалить данные о пациенте \"{PatientDataGridView.Rows[e.RowIndex].Cells[1].Value}\"",
-                                        "Внимание!", MessageBoxButtons.YesNo);
-                if (deleteDiaolg == DialogResult.Yes)
-                {
-                    PatientDataGridView.Rows.RemoveAt(e.RowIndex);
-                    SaveChanges(PatientBindingSource);
-                }
-                return;
+                PatientDataGridView.Rows.RemoveAt(e.RowIndex);
+                SaveChanges(PatientBindingSource);
             }
-
-            if (e.ColumnIndex == 7)
+            else if (resultClick == ResultClick.Change)
             {
                 EnableDisplayElements(false);
                 ChangeDisplayElements(PatientDataGridView, PatientAddButton, PatientPanel, false);
@@ -121,7 +186,7 @@ namespace Polyclinic
 
         private void PatientDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            PatientDataGridView.Cursor = e.ColumnIndex > 6 ? Cursors.Hand : Cursors.Default;
+            ChangeCursor(e, PatientDataGridView);
         }
 
         private void PatientAddButton_Click(object sender, EventArgs e)
@@ -153,25 +218,19 @@ namespace Polyclinic
 
         private void RegistryViewDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex < 0 || e.ColumnIndex < RegistryViewDataGridView.ColumnCount - 2)
             {
                 return;
             }
 
-            if (e.ColumnIndex == 7)
+            var resultClick = ResultCellContenClick(e, RegistryViewDataGridView, "Вы действительно хотите удалить данные о приёме");
+            if (resultClick == ResultClick.Delete)
             {
-                var deleteDiaolg = MessageBox.Show($"Вы действительно хотите удалить данные о приёме",
-                                                        "Внимание!", MessageBoxButtons.YesNo);
-                if (deleteDiaolg == DialogResult.Yes)
-                {
-                    var id = Convert.ToInt32(RegistryViewDataGridView.Rows[e.RowIndex].Cells[0].Value);
-                    polyDataSet.Регистратура.First(x => x.id == id).Delete();
-                    RegistrySaveChanges();
-                }
-                return;
+                var id = Convert.ToInt32(RegistryViewDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                polyDataSet.Регистратура.First(x => x.id == id).Delete();
+                RegistrySaveChanges();
             }
-
-            if (e.ColumnIndex == 6)
+            else if (resultClick == ResultClick.Change)
             {
                 EnableDisplayElements(false);
                 PatientGroupBox.Enabled = false;
@@ -181,7 +240,7 @@ namespace Polyclinic
 
         private void RegistryViewDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            RegistryViewDataGridView.Cursor = e.ColumnIndex > 5 ? Cursors.Hand : Cursors.Default;
+            ChangeCursor(e, RegistryViewDataGridView);
         }
 
         private void RegistryAddButton_Click(object sender, EventArgs e)
@@ -216,25 +275,19 @@ namespace Polyclinic
 
         private void CardViewDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex < 0 || e.ColumnIndex < CardViewDataGridView.ColumnCount - 2)
             {
                 return;
             }
 
-            if (e.ColumnIndex == 7)
+            var resultClick = ResultCellContenClick(e, CardViewDataGridView, "Вы действительно хотите удалить данные о диагнозе");
+            if (resultClick == ResultClick.Delete)
             {
-                var deleteDiaolg = MessageBox.Show($"Вы действительно хотите удалить данные о диагнозе",
-                                                        "Внимание!", MessageBoxButtons.YesNo);
-                if (deleteDiaolg == DialogResult.Yes)
-                {
-                    var id = Convert.ToInt32(CardViewDataGridView.Rows[e.RowIndex].Cells[0].Value);
-                    polyDataSet.Амбулаторная_карта.First(x => x.id == id).Delete();
-                    CardSaveChanges();
-                }
-                return;
+                var id = Convert.ToInt32(CardViewDataGridView.Rows[e.RowIndex].Cells[0].Value);
+                polyDataSet.Амбулаторная_карта.First(x => x.id == id).Delete();
+                CardSaveChanges();
             }
-
-            if (e.ColumnIndex == 6)
+            else if (resultClick == ResultClick.Change)
             {
                 EnableDisplayElements(false);
                 PatientGroupBox.Enabled = false;
@@ -244,7 +297,7 @@ namespace Polyclinic
 
         private void CardViewDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            CardViewDataGridView.Cursor = e.ColumnIndex > 5 ? Cursors.Hand : Cursors.Default;
+            ChangeCursor(e, CardViewDataGridView);
         }
 
         private void CardAddButton_Click(object sender, EventArgs e)
@@ -269,6 +322,138 @@ namespace Polyclinic
             CardBindingSource.CancelEdit();
             PatientGroupBox.Enabled = true;
             ChangeDisplayElements(CardViewDataGridView, CardAddButton, CardPanel, true);
+        }
+
+        private void DoctorDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < DoctorDataGridView.ColumnCount - 2)
+            {
+                return;
+            }
+
+            var result = ResultCellContenClick(e, DoctorDataGridView, $"Вы действительно хотите удалить данные о {DoctorDataGridView.Rows[e.RowIndex].Cells[1].Value}");
+            if (result == ResultClick.Delete)
+            {
+                DoctorDataGridView.Rows.RemoveAt(e.RowIndex);
+                DoctorSaveChanges();
+            }
+            else if (result == ResultClick.Change)
+            {
+                EnableDisplayElements(DoctorDataGridView, DoctorAddButton, DoctorPanel, false);
+            }
+        }
+
+        private void DoctorDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            ChangeCursor(e, DoctorDataGridView);
+        }
+
+        private void DoctorAddButton_Click(object sender, EventArgs e)
+        {
+            DoctorBindingSource.AddNew();
+            EnableDisplayElements(DoctorDataGridView, DoctorAddButton, DoctorPanel, false);
+        }
+
+        private void DoctorSaveButton_Click(object sender, EventArgs e)
+        {
+            DoctorSaveChanges();
+            EnableDisplayElements(DoctorDataGridView, DoctorAddButton, DoctorPanel, true);
+        }
+
+        private void DoctorCancelButton_Click(object sender, EventArgs e)
+        {
+            DoctorBindingSource.CancelEdit();
+            EnableDisplayElements(DoctorDataGridView, DoctorAddButton, DoctorPanel, true);
+        }
+
+        private void DiagnosesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < DiagnosesDataGridView.ColumnCount - 2)
+            {
+                return;
+            }
+
+            var result = ResultCellContenClick(e, DiagnosesDataGridView, "Вы действительно хотите удалить данные о диагнозе");
+            if (result == ResultClick.Delete)
+            {
+                DiagnosesDataGridView.Rows.RemoveAt(e.RowIndex);
+                DiagnosesSaveChanges();
+            }
+            else if (result == ResultClick.Change)
+            {
+                EnableDisplayElements(DiagnosesDataGridView, DiagnosesAddButton, DiagnosesPanel, false);
+            }
+        }
+
+        private void DiagnosesDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            ChangeCursor(e, DiagnosesDataGridView);
+        }
+
+        private void DiagnosesAddButton_Click(object sender, EventArgs e)
+        {
+            DiagnosesBindingSource.AddNew();
+            EnableDisplayElements(DiagnosesDataGridView, DiagnosesAddButton, DiagnosesPanel, false);
+        }
+
+        private void DiagnosesSaveButton_Click(object sender, EventArgs e)
+        {
+            DiagnosesSaveChanges();
+            EnableDisplayElements(DiagnosesDataGridView, DiagnosesAddButton, DiagnosesPanel, true);
+        }
+
+        private void DiagnosesCancelButton_Click(object sender, EventArgs e)
+        {
+            DiagnosesBindingSource.CancelEdit();
+            EnableDisplayElements(DiagnosesDataGridView, DiagnosesAddButton, DiagnosesPanel, true);
+        }
+
+        private void SpecialtyDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < SpecialtyDataGridView.ColumnCount - 2)
+            {
+                return;
+            }
+
+            var result = ResultCellContenClick(e, SpecialtyDataGridView, "Вы действительно хотите удалить данные о диагнозе");
+            if (result == ResultClick.Delete)
+            {
+                SpecialtyDataGridView.Rows.RemoveAt(e.RowIndex);
+                SpecialtySaveChanges();
+            }
+            else if (result == ResultClick.Change)
+            {
+                EnableDisplayElements(SpecialtyDataGridView, SpecialtyAddButton, SpecialtyPanel, false);
+            }
+        }
+
+        private void SpecialtyDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            ChangeCursor(e, SpecialtyDataGridView);
+        }
+
+        private void SpecialtyAddButton_Click(object sender, EventArgs e)
+        {
+            SpecialtyBindingSource.AddNew();
+            EnableDisplayElements(SpecialtyDataGridView, SpecialtyAddButton, SpecialtyPanel, false);
+        }
+
+        private void SpecialtySaveButton_Click(object sender, EventArgs e)
+        {
+            SpecialtySaveChanges();
+            EnableDisplayElements(SpecialtyDataGridView, SpecialtyAddButton, SpecialtyPanel, true);
+        }
+
+        private void SpecialtyCancelButton_Click(object sender, EventArgs e)
+        {
+            SpecialtyBindingSource.CancelEdit();
+            EnableDisplayElements(SpecialtyDataGridView, SpecialtyAddButton, SpecialtyPanel, true);
+        }
+
+        private void PolyclinicForm_SizeChanged(object sender, EventArgs e)
+        {
+            PolyclinicTabControl.Left = ClientSize.Width / 2 - PolyclinicTabControl.Width / 2;
+            PolyclinicTabControl.Top = ClientSize.Height / 2 - PolyclinicTabControl.Height / 2;
         }
     }
 }
