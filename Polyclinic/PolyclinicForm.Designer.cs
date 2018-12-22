@@ -114,13 +114,13 @@
             this.PatientChangeColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.PatientDeleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.PatientPanel = new System.Windows.Forms.Panel();
+            this.льготыComboBox = new System.Windows.Forms.ComboBox();
+            this.полComboBox = new System.Windows.Forms.ComboBox();
             this.PatientCancelButton = new System.Windows.Forms.Button();
             this.PatientSaveButton = new System.Windows.Forms.Button();
-            this.признак_льготTextBox = new System.Windows.Forms.TextBox();
             this.фИОTextBox = new System.Windows.Forms.TextBox();
             this.телефонTextBox = new System.Windows.Forms.TextBox();
             this.адрес_проживанияTextBox = new System.Windows.Forms.TextBox();
-            this.полTextBox = new System.Windows.Forms.TextBox();
             this.дата_рожденияDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.PatientTableAdapter = new Polyclinic.PolyDataSetTableAdapters.ПациентTableAdapter();
             this.tableAdapterManager = new Polyclinic.PolyDataSetTableAdapters.TableAdapterManager();
@@ -128,6 +128,11 @@
             this.RegistryTableAdapter = new Polyclinic.PolyDataSetTableAdapters.РегистратураTableAdapter();
             this.DoctorTableAdapter = new Polyclinic.PolyDataSetTableAdapters.ВрачиTableAdapter();
             this.DoctorDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DoctorChangeColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DoctorDeleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.CardViewTableAdapter = new Polyclinic.PolyDataSetTableAdapters.СхемаЛеченияTableAdapter();
             this.PolyclinicTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -146,29 +151,34 @@
             this.DiagnosesCancelButton = new System.Windows.Forms.Button();
             this.DiagnosesSaveButton = new System.Windows.Forms.Button();
             this.DiagnosesDataGridView = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.SpecialtyAddButton = new System.Windows.Forms.Button();
-            this.SpecialtyDataGridView = new System.Windows.Forms.DataGridView();
-            this.SpecialtyPanel = new System.Windows.Forms.Panel();
-            this.SpecialtyCancelButton = new System.Windows.Forms.Button();
-            this.SpecialtySaveButton = new System.Windows.Forms.Button();
-            this.наименованиеTextBox1 = new System.Windows.Forms.TextBox();
-            this.SpecialtyTableAdapter = new Polyclinic.PolyDataSetTableAdapters.Категория_врачебной_специальностиTableAdapter();
-            this.DiagnosesTableAdapter = new Polyclinic.PolyDataSetTableAdapters.ДиагнозыTableAdapter();
-            this.CardTableAdapter = new Polyclinic.PolyDataSetTableAdapters.Амбулаторная_картаTableAdapter();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiagnosesChangeColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.DiagnosesDeleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DoctorChangeColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.DoctorDeleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.SpecialtyAddButton = new System.Windows.Forms.Button();
+            this.SpecialtyPanel = new System.Windows.Forms.Panel();
+            this.SpecialtyCancelButton = new System.Windows.Forms.Button();
+            this.SpecialtySaveButton = new System.Windows.Forms.Button();
+            this.наименованиеTextBox1 = new System.Windows.Forms.TextBox();
+            this.SpecialtyDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpecialtyChangeColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.SpecialtyDeleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.SpecialtyTableAdapter = new Polyclinic.PolyDataSetTableAdapters.Категория_врачебной_специальностиTableAdapter();
+            this.DiagnosesTableAdapter = new Polyclinic.PolyDataSetTableAdapters.ДиагнозыTableAdapter();
+            this.CardTableAdapter = new Polyclinic.PolyDataSetTableAdapters.Амбулаторная_картаTableAdapter();
+            this.MenuStrip = new System.Windows.Forms.MenuStrip();
+            this.ExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DoctorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DiagnosesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegistryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SpecialtyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             код_пациентаLabel = new System.Windows.Forms.Label();
             код_врачаLabel = new System.Windows.Forms.Label();
             дата_и_время_приёмаLabel = new System.Windows.Forms.Label();
@@ -213,8 +223,9 @@
             this.DiagnosesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DiagnosesDataGridView)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SpecialtyDataGridView)).BeginInit();
             this.SpecialtyPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SpecialtyDataGridView)).BeginInit();
+            this.MenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // код_пациентаLabel
@@ -400,6 +411,7 @@
             // 
             // PatientAddButton
             // 
+            this.PatientAddButton.BackColor = System.Drawing.Color.White;
             this.PatientAddButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PatientAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PatientAddButton.Image = global::Polyclinic.Properties.Resources.add_icon;
@@ -407,7 +419,7 @@
             this.PatientAddButton.Name = "PatientAddButton";
             this.PatientAddButton.Size = new System.Drawing.Size(968, 30);
             this.PatientAddButton.TabIndex = 7;
-            this.PatientAddButton.UseVisualStyleBackColor = true;
+            this.PatientAddButton.UseVisualStyleBackColor = false;
             this.PatientAddButton.Click += new System.EventHandler(this.PatientAddButton_Click);
             // 
             // CardViewDataGridView
@@ -500,7 +512,7 @@
             // 
             // CardViewChangeColumn
             // 
-            this.CardViewChangeColumn.FillWeight = 22F;
+            this.CardViewChangeColumn.FillWeight = 22.5F;
             this.CardViewChangeColumn.HeaderText = "Редактировать";
             this.CardViewChangeColumn.Image = global::Polyclinic.Properties.Resources.edit_icon;
             this.CardViewChangeColumn.Name = "CardViewChangeColumn";
@@ -508,7 +520,7 @@
             // 
             // CardViewDeleteColumn
             // 
-            this.CardViewDeleteColumn.FillWeight = 21F;
+            this.CardViewDeleteColumn.FillWeight = 22F;
             this.CardViewDeleteColumn.HeaderText = "Удалить";
             this.CardViewDeleteColumn.Image = global::Polyclinic.Properties.Resources.delete_icon;
             this.CardViewDeleteColumn.Name = "CardViewDeleteColumn";
@@ -534,6 +546,7 @@
             // 
             // CardAddButton
             // 
+            this.CardAddButton.BackColor = System.Drawing.Color.White;
             this.CardAddButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CardAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CardAddButton.Image = global::Polyclinic.Properties.Resources.add_icon;
@@ -541,7 +554,7 @@
             this.CardAddButton.Name = "CardAddButton";
             this.CardAddButton.Size = new System.Drawing.Size(396, 30);
             this.CardAddButton.TabIndex = 1;
-            this.CardAddButton.UseVisualStyleBackColor = true;
+            this.CardAddButton.UseVisualStyleBackColor = false;
             this.CardAddButton.Click += new System.EventHandler(this.CardAddButton_Click);
             // 
             // CardPanel
@@ -651,6 +664,7 @@
             // 
             // RegistryAddButton
             // 
+            this.RegistryAddButton.BackColor = System.Drawing.Color.White;
             this.RegistryAddButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegistryAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RegistryAddButton.Image = global::Polyclinic.Properties.Resources.add_icon;
@@ -658,7 +672,7 @@
             this.RegistryAddButton.Name = "RegistryAddButton";
             this.RegistryAddButton.Size = new System.Drawing.Size(556, 30);
             this.RegistryAddButton.TabIndex = 1;
-            this.RegistryAddButton.UseVisualStyleBackColor = true;
+            this.RegistryAddButton.UseVisualStyleBackColor = false;
             this.RegistryAddButton.Click += new System.EventHandler(this.RegistryAddButton_Click);
             // 
             // RegistryViewDataGridView
@@ -747,7 +761,7 @@
             // 
             // RegistryChangeColumn
             // 
-            this.RegistryChangeColumn.FillWeight = 13.5F;
+            this.RegistryChangeColumn.FillWeight = 14.5F;
             this.RegistryChangeColumn.HeaderText = "Редактировать";
             this.RegistryChangeColumn.Image = global::Polyclinic.Properties.Resources.edit_icon;
             this.RegistryChangeColumn.Name = "RegistryChangeColumn";
@@ -757,7 +771,7 @@
             // 
             // RegistryDeleteColumn
             // 
-            this.RegistryDeleteColumn.FillWeight = 14F;
+            this.RegistryDeleteColumn.FillWeight = 14.5F;
             this.RegistryDeleteColumn.HeaderText = "Удалить";
             this.RegistryDeleteColumn.Image = global::Polyclinic.Properties.Resources.delete_icon;
             this.RegistryDeleteColumn.Name = "RegistryDeleteColumn";
@@ -767,7 +781,7 @@
             // 
             // RegistryViewBindingSource
             // 
-            this.RegistryViewBindingSource.DataMember = "FK_Пациент_СписокРегистратуры";
+            this.RegistryViewBindingSource.DataMember = "Пациент_СписокРегистратуры";
             this.RegistryViewBindingSource.DataSource = this.PatientBindingSource;
             // 
             // RegistryPanel
@@ -792,7 +806,7 @@
             // 
             this.RegistryCancelButton.Image = global::Polyclinic.Properties.Resources.delete_icon;
             this.RegistryCancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RegistryCancelButton.Location = new System.Drawing.Point(298, 189);
+            this.RegistryCancelButton.Location = new System.Drawing.Point(308, 198);
             this.RegistryCancelButton.Name = "RegistryCancelButton";
             this.RegistryCancelButton.Size = new System.Drawing.Size(165, 32);
             this.RegistryCancelButton.TabIndex = 9;
@@ -805,7 +819,7 @@
             this.RegistrySaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegistrySaveButton.Image = global::Polyclinic.Properties.Resources.Save_icon;
             this.RegistrySaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RegistrySaveButton.Location = new System.Drawing.Point(94, 189);
+            this.RegistrySaveButton.Location = new System.Drawing.Point(104, 198);
             this.RegistrySaveButton.Name = "RegistrySaveButton";
             this.RegistrySaveButton.Size = new System.Drawing.Size(165, 32);
             this.RegistrySaveButton.TabIndex = 8;
@@ -975,7 +989,7 @@
             // 
             // PatientChangeColumn
             // 
-            this.PatientChangeColumn.FillWeight = 19.6F;
+            this.PatientChangeColumn.FillWeight = 20.5F;
             this.PatientChangeColumn.HeaderText = "Редактировать";
             this.PatientChangeColumn.Image = global::Polyclinic.Properties.Resources.edit_icon;
             this.PatientChangeColumn.Name = "PatientChangeColumn";
@@ -984,7 +998,7 @@
             // 
             // PatientDeleteColumn
             // 
-            this.PatientDeleteColumn.FillWeight = 19.7F;
+            this.PatientDeleteColumn.FillWeight = 20.5F;
             this.PatientDeleteColumn.HeaderText = "Удалить";
             this.PatientDeleteColumn.Image = global::Polyclinic.Properties.Resources.delete_icon;
             this.PatientDeleteColumn.Name = "PatientDeleteColumn";
@@ -993,17 +1007,17 @@
             // 
             // PatientPanel
             // 
+            this.PatientPanel.Controls.Add(this.льготыComboBox);
+            this.PatientPanel.Controls.Add(this.полComboBox);
             this.PatientPanel.Controls.Add(this.PatientCancelButton);
             this.PatientPanel.Controls.Add(this.PatientSaveButton);
             this.PatientPanel.Controls.Add(фИОLabel);
-            this.PatientPanel.Controls.Add(this.признак_льготTextBox);
             this.PatientPanel.Controls.Add(признак_льготLabel);
             this.PatientPanel.Controls.Add(this.фИОTextBox);
             this.PatientPanel.Controls.Add(this.телефонTextBox);
             this.PatientPanel.Controls.Add(адрес_проживанияLabel);
             this.PatientPanel.Controls.Add(телефонLabel);
             this.PatientPanel.Controls.Add(this.адрес_проживанияTextBox);
-            this.PatientPanel.Controls.Add(this.полTextBox);
             this.PatientPanel.Controls.Add(дата_рожденияLabel);
             this.PatientPanel.Controls.Add(полLabel);
             this.PatientPanel.Controls.Add(this.дата_рожденияDateTimePicker);
@@ -1014,6 +1028,32 @@
             this.PatientPanel.Size = new System.Drawing.Size(974, 276);
             this.PatientPanel.TabIndex = 19;
             this.PatientPanel.Visible = false;
+            // 
+            // льготыComboBox
+            // 
+            this.льготыComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PatientBindingSource, "Признак льгот", true));
+            this.льготыComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.льготыComboBox.FormattingEnabled = true;
+            this.льготыComboBox.Items.AddRange(new object[] {
+            "Да",
+            "Нет"});
+            this.льготыComboBox.Location = new System.Drawing.Point(404, 175);
+            this.льготыComboBox.Name = "льготыComboBox";
+            this.льготыComboBox.Size = new System.Drawing.Size(346, 32);
+            this.льготыComboBox.TabIndex = 17;
+            // 
+            // полComboBox
+            // 
+            this.полComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PatientBindingSource, "Пол", true));
+            this.полComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.полComboBox.FormattingEnabled = true;
+            this.полComboBox.Items.AddRange(new object[] {
+            "Муж.",
+            "Жен."});
+            this.полComboBox.Location = new System.Drawing.Point(404, 103);
+            this.полComboBox.Name = "полComboBox";
+            this.полComboBox.Size = new System.Drawing.Size(346, 32);
+            this.полComboBox.TabIndex = 16;
             // 
             // PatientCancelButton
             // 
@@ -1041,14 +1081,6 @@
             this.PatientSaveButton.UseVisualStyleBackColor = true;
             this.PatientSaveButton.Click += new System.EventHandler(this.PatientSaveButton_Click);
             // 
-            // признак_льготTextBox
-            // 
-            this.признак_льготTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PatientBindingSource, "Признак льгот", true));
-            this.признак_льготTextBox.Location = new System.Drawing.Point(404, 175);
-            this.признак_льготTextBox.Name = "признак_льготTextBox";
-            this.признак_льготTextBox.Size = new System.Drawing.Size(346, 29);
-            this.признак_льготTextBox.TabIndex = 13;
-            // 
             // фИОTextBox
             // 
             this.фИОTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PatientBindingSource, "ФИО", true));
@@ -1073,14 +1105,6 @@
             this.адрес_проживанияTextBox.Name = "адрес_проживанияTextBox";
             this.адрес_проживанияTextBox.Size = new System.Drawing.Size(346, 29);
             this.адрес_проживанияTextBox.TabIndex = 5;
-            // 
-            // полTextBox
-            // 
-            this.полTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PatientBindingSource, "Пол", true));
-            this.полTextBox.Location = new System.Drawing.Point(404, 105);
-            this.полTextBox.Name = "полTextBox";
-            this.полTextBox.Size = new System.Drawing.Size(346, 29);
-            this.полTextBox.TabIndex = 9;
             // 
             // дата_рожденияDateTimePicker
             // 
@@ -1151,6 +1175,46 @@
             this.DoctorDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoctorDataGridView_CellContentClick);
             this.DoctorDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoctorDataGridView_CellMouseEnter);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Код врача";
+            this.dataGridViewTextBoxColumn1.FillWeight = 32F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Код врача";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ФИО";
+            this.dataGridViewTextBoxColumn2.HeaderText = "ФИО";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Код категории специальности";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Код категории специальности";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // DoctorChangeColumn
+            // 
+            this.DoctorChangeColumn.FillWeight = 10.4F;
+            this.DoctorChangeColumn.HeaderText = "Редактировать";
+            this.DoctorChangeColumn.Image = global::Polyclinic.Properties.Resources.edit_icon;
+            this.DoctorChangeColumn.Name = "DoctorChangeColumn";
+            this.DoctorChangeColumn.ReadOnly = true;
+            this.DoctorChangeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // DoctorDeleteColumn
+            // 
+            this.DoctorDeleteColumn.FillWeight = 10.2F;
+            this.DoctorDeleteColumn.HeaderText = "Удалить";
+            this.DoctorDeleteColumn.Image = global::Polyclinic.Properties.Resources.delete_icon;
+            this.DoctorDeleteColumn.Name = "DoctorDeleteColumn";
+            this.DoctorDeleteColumn.ReadOnly = true;
+            this.DoctorDeleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // CardViewTableAdapter
             // 
             this.CardViewTableAdapter.ClearBeforeFill = true;
@@ -1164,7 +1228,7 @@
             this.PolyclinicTabControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PolyclinicTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PolyclinicTabControl.ItemSize = new System.Drawing.Size(160, 29);
-            this.PolyclinicTabControl.Location = new System.Drawing.Point(4, 4);
+            this.PolyclinicTabControl.Location = new System.Drawing.Point(4, 30);
             this.PolyclinicTabControl.Multiline = true;
             this.PolyclinicTabControl.Name = "PolyclinicTabControl";
             this.PolyclinicTabControl.Padding = new System.Drawing.Point(20, 3);
@@ -1380,11 +1444,42 @@
             this.DiagnosesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DiagnosesDataGridView_CellContentClick);
             this.DiagnosesDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DiagnosesDataGridView_CellMouseEnter);
             // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Код диагноза";
+            this.dataGridViewTextBoxColumn6.FillWeight = 25F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Код диагноза";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Наименование";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Наименование";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // DiagnosesChangeColumn
+            // 
+            this.DiagnosesChangeColumn.FillWeight = 5.5F;
+            this.DiagnosesChangeColumn.HeaderText = "Редактировать";
+            this.DiagnosesChangeColumn.Image = global::Polyclinic.Properties.Resources.edit_icon;
+            this.DiagnosesChangeColumn.Name = "DiagnosesChangeColumn";
+            this.DiagnosesChangeColumn.ReadOnly = true;
+            // 
+            // DiagnosesDeleteColumn
+            // 
+            this.DiagnosesDeleteColumn.FillWeight = 5.6F;
+            this.DiagnosesDeleteColumn.HeaderText = "Удалить";
+            this.DiagnosesDeleteColumn.Image = global::Polyclinic.Properties.Resources.delete_icon;
+            this.DiagnosesDeleteColumn.Name = "DiagnosesDeleteColumn";
+            this.DiagnosesDeleteColumn.ReadOnly = true;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.SpecialtyAddButton);
-            this.tabPage3.Controls.Add(this.SpecialtyDataGridView);
             this.tabPage3.Controls.Add(this.SpecialtyPanel);
+            this.tabPage3.Controls.Add(this.SpecialtyDataGridView);
             this.tabPage3.Location = new System.Drawing.Point(4, 33);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -1404,37 +1499,6 @@
             this.SpecialtyAddButton.TabIndex = 27;
             this.SpecialtyAddButton.UseVisualStyleBackColor = true;
             this.SpecialtyAddButton.Click += new System.EventHandler(this.SpecialtyAddButton_Click);
-            // 
-            // SpecialtyDataGridView
-            // 
-            this.SpecialtyDataGridView.AllowUserToAddRows = false;
-            this.SpecialtyDataGridView.AllowUserToDeleteRows = false;
-            this.SpecialtyDataGridView.AutoGenerateColumns = false;
-            this.SpecialtyDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.SpecialtyDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.SpecialtyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SpecialtyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.SpecialtyChangeColumn,
-            this.SpecialtyDeleteColumn});
-            this.SpecialtyDataGridView.DataSource = this.SpecialtyBindingSource;
-            this.SpecialtyDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.SpecialtyDataGridView.Name = "SpecialtyDataGridView";
-            this.SpecialtyDataGridView.ReadOnly = true;
-            this.SpecialtyDataGridView.RowHeadersVisible = false;
-            this.SpecialtyDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SpecialtyDataGridView.RowTemplate.Height = 25;
-            this.SpecialtyDataGridView.Size = new System.Drawing.Size(986, 608);
-            this.SpecialtyDataGridView.TabIndex = 0;
-            this.SpecialtyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecialtyDataGridView_CellContentClick);
-            this.SpecialtyDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecialtyDataGridView_CellMouseEnter);
             // 
             // SpecialtyPanel
             // 
@@ -1482,87 +1546,36 @@
             this.наименованиеTextBox1.Size = new System.Drawing.Size(307, 29);
             this.наименованиеTextBox1.TabIndex = 28;
             // 
-            // SpecialtyTableAdapter
+            // SpecialtyDataGridView
             // 
-            this.SpecialtyTableAdapter.ClearBeforeFill = true;
-            // 
-            // DiagnosesTableAdapter
-            // 
-            this.DiagnosesTableAdapter.ClearBeforeFill = true;
-            // 
-            // CardTableAdapter
-            // 
-            this.CardTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Код диагноза";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Код диагноза";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Наименование";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Наименование";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // DiagnosesChangeColumn
-            // 
-            this.DiagnosesChangeColumn.FillWeight = 8.9F;
-            this.DiagnosesChangeColumn.HeaderText = "Редактировать";
-            this.DiagnosesChangeColumn.Image = global::Polyclinic.Properties.Resources.edit_icon;
-            this.DiagnosesChangeColumn.Name = "DiagnosesChangeColumn";
-            this.DiagnosesChangeColumn.ReadOnly = true;
-            // 
-            // DiagnosesDeleteColumn
-            // 
-            this.DiagnosesDeleteColumn.FillWeight = 8.9F;
-            this.DiagnosesDeleteColumn.HeaderText = "Удалить";
-            this.DiagnosesDeleteColumn.Image = global::Polyclinic.Properties.Resources.delete_icon;
-            this.DiagnosesDeleteColumn.Name = "DiagnosesDeleteColumn";
-            this.DiagnosesDeleteColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Код врача";
-            this.dataGridViewTextBoxColumn1.FillWeight = 32F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Код врача";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ФИО";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ФИО";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Код категории специальности";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Код категории специальности";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // DoctorChangeColumn
-            // 
-            this.DoctorChangeColumn.FillWeight = 10.4F;
-            this.DoctorChangeColumn.HeaderText = "Редактировать";
-            this.DoctorChangeColumn.Image = global::Polyclinic.Properties.Resources.edit_icon;
-            this.DoctorChangeColumn.Name = "DoctorChangeColumn";
-            this.DoctorChangeColumn.ReadOnly = true;
-            this.DoctorChangeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // DoctorDeleteColumn
-            // 
-            this.DoctorDeleteColumn.FillWeight = 10.2F;
-            this.DoctorDeleteColumn.HeaderText = "Удалить";
-            this.DoctorDeleteColumn.Image = global::Polyclinic.Properties.Resources.delete_icon;
-            this.DoctorDeleteColumn.Name = "DoctorDeleteColumn";
-            this.DoctorDeleteColumn.ReadOnly = true;
-            this.DoctorDeleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.SpecialtyDataGridView.AllowUserToAddRows = false;
+            this.SpecialtyDataGridView.AllowUserToDeleteRows = false;
+            this.SpecialtyDataGridView.AutoGenerateColumns = false;
+            this.SpecialtyDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.SpecialtyDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.SpecialtyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SpecialtyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.SpecialtyChangeColumn,
+            this.SpecialtyDeleteColumn});
+            this.SpecialtyDataGridView.DataSource = this.SpecialtyBindingSource;
+            this.SpecialtyDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.SpecialtyDataGridView.Name = "SpecialtyDataGridView";
+            this.SpecialtyDataGridView.ReadOnly = true;
+            this.SpecialtyDataGridView.RowHeadersVisible = false;
+            this.SpecialtyDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SpecialtyDataGridView.RowTemplate.Height = 25;
+            this.SpecialtyDataGridView.Size = new System.Drawing.Size(986, 608);
+            this.SpecialtyDataGridView.TabIndex = 0;
+            this.SpecialtyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecialtyDataGridView_CellContentClick);
+            this.SpecialtyDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.SpecialtyDataGridView_CellMouseEnter);
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -1597,18 +1610,115 @@
             this.SpecialtyDeleteColumn.Name = "SpecialtyDeleteColumn";
             this.SpecialtyDeleteColumn.ReadOnly = true;
             // 
+            // SpecialtyTableAdapter
+            // 
+            this.SpecialtyTableAdapter.ClearBeforeFill = true;
+            // 
+            // DiagnosesTableAdapter
+            // 
+            this.DiagnosesTableAdapter.ClearBeforeFill = true;
+            // 
+            // CardTableAdapter
+            // 
+            this.CardTableAdapter.ClearBeforeFill = true;
+            // 
+            // MenuStrip
+            // 
+            this.MenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ExportToolStripMenuItem,
+            this.HelpToolStripMenuItem});
+            this.MenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MenuStrip.Name = "MenuStrip";
+            this.MenuStrip.Size = new System.Drawing.Size(1008, 27);
+            this.MenuStrip.TabIndex = 18;
+            this.MenuStrip.Text = "MenuStrip";
+            // 
+            // ExportToolStripMenuItem
+            // 
+            this.ExportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DoctorToolStripMenuItem,
+            this.PatientToolStripMenuItem,
+            this.DiagnosesToolStripMenuItem,
+            this.RegistryToolStripMenuItem,
+            this.CardToolStripMenuItem,
+            this.SpecialtyToolStripMenuItem});
+            this.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem";
+            this.ExportToolStripMenuItem.Size = new System.Drawing.Size(183, 23);
+            this.ExportToolStripMenuItem.Text = "Экспортировать таблицу";
+            // 
+            // DoctorToolStripMenuItem
+            // 
+            this.DoctorToolStripMenuItem.Name = "DoctorToolStripMenuItem";
+            this.DoctorToolStripMenuItem.Size = new System.Drawing.Size(252, 24);
+            this.DoctorToolStripMenuItem.Text = "Врачи";
+            this.DoctorToolStripMenuItem.Click += new System.EventHandler(this.DoctorToolStripMenuItem_Click);
+            // 
+            // PatientToolStripMenuItem
+            // 
+            this.PatientToolStripMenuItem.Name = "PatientToolStripMenuItem";
+            this.PatientToolStripMenuItem.Size = new System.Drawing.Size(252, 24);
+            this.PatientToolStripMenuItem.Text = "Пациенты";
+            this.PatientToolStripMenuItem.Click += new System.EventHandler(this.PatientToolStripMenuItem_Click);
+            // 
+            // DiagnosesToolStripMenuItem
+            // 
+            this.DiagnosesToolStripMenuItem.Name = "DiagnosesToolStripMenuItem";
+            this.DiagnosesToolStripMenuItem.Size = new System.Drawing.Size(252, 24);
+            this.DiagnosesToolStripMenuItem.Text = "Диагнозы";
+            this.DiagnosesToolStripMenuItem.Click += new System.EventHandler(this.DiagnosesToolStripMenuItem_Click);
+            // 
+            // RegistryToolStripMenuItem
+            // 
+            this.RegistryToolStripMenuItem.Name = "RegistryToolStripMenuItem";
+            this.RegistryToolStripMenuItem.Size = new System.Drawing.Size(252, 24);
+            this.RegistryToolStripMenuItem.Text = "Регистратура";
+            this.RegistryToolStripMenuItem.Click += new System.EventHandler(this.RegistryToolStripMenuItem_Click);
+            // 
+            // CardToolStripMenuItem
+            // 
+            this.CardToolStripMenuItem.Name = "CardToolStripMenuItem";
+            this.CardToolStripMenuItem.Size = new System.Drawing.Size(252, 24);
+            this.CardToolStripMenuItem.Text = "Амбулаторная карта";
+            this.CardToolStripMenuItem.Click += new System.EventHandler(this.CardToolStripMenuItem_Click);
+            // 
+            // SpecialtyToolStripMenuItem
+            // 
+            this.SpecialtyToolStripMenuItem.Name = "SpecialtyToolStripMenuItem";
+            this.SpecialtyToolStripMenuItem.Size = new System.Drawing.Size(252, 24);
+            this.SpecialtyToolStripMenuItem.Text = "Врачебные специальности";
+            this.SpecialtyToolStripMenuItem.Click += new System.EventHandler(this.SpecialtyToolStripMenuItem_Click);
+            // 
+            // HelpToolStripMenuItem
+            // 
+            this.HelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AboutProgramToolStripMenuItem});
+            this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
+            this.HelpToolStripMenuItem.Size = new System.Drawing.Size(75, 23);
+            this.HelpToolStripMenuItem.Text = "Справка";
+            // 
+            // AboutProgramToolStripMenuItem
+            // 
+            this.AboutProgramToolStripMenuItem.Name = "AboutProgramToolStripMenuItem";
+            this.AboutProgramToolStripMenuItem.Size = new System.Drawing.Size(350, 24);
+            this.AboutProgramToolStripMenuItem.Text = "О программе Подсистема \"Поликлиника\"";
+            this.AboutProgramToolStripMenuItem.Click += new System.EventHandler(this.AboutProgramToolStripMenuItem_Click);
+            // 
             // PolyclinicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1008, 691);
+            this.ClientSize = new System.Drawing.Size(1008, 716);
             this.Controls.Add(this.PolyclinicTabControl);
+            this.Controls.Add(this.MenuStrip);
             this.DoubleBuffered = true;
+            this.MainMenuStrip = this.MenuStrip;
             this.Name = "PolyclinicForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Подсистема \"Поликлиника\"";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.PolyclinicForm_Load);
             this.SizeChanged += new System.EventHandler(this.PolyclinicForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.RegistryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatientBindingSource)).EndInit();
@@ -1642,10 +1752,13 @@
             this.DiagnosesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DiagnosesDataGridView)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SpecialtyDataGridView)).EndInit();
             this.SpecialtyPanel.ResumeLayout(false);
             this.SpecialtyPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SpecialtyDataGridView)).EndInit();
+            this.MenuStrip.ResumeLayout(false);
+            this.MenuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1679,20 +1792,10 @@
         private PolyDataSetTableAdapters.РегистратураTableAdapter RegistryTableAdapter;
         private PolyDataSetTableAdapters.ВрачиTableAdapter DoctorTableAdapter;
         private System.Windows.Forms.BindingSource RegistryBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодПациентаDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодВрачаDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn датаИВремяПриёмаDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn RegistryChangeColumn;
-        private System.Windows.Forms.DataGridViewImageColumn RegistryDeleteColumn;
         private System.Windows.Forms.TextBox фИОTextBox;
         private System.Windows.Forms.TextBox адрес_проживанияTextBox;
         private System.Windows.Forms.DateTimePicker дата_рожденияDateTimePicker;
-        private System.Windows.Forms.TextBox полTextBox;
         private System.Windows.Forms.TextBox телефонTextBox;
-        private System.Windows.Forms.TextBox признак_льготTextBox;
         private System.Windows.Forms.Panel RegistryPanel;
         private System.Windows.Forms.Panel PatientPanel;
         private System.Windows.Forms.TabPage tabPage3;
@@ -1715,15 +1818,6 @@
         private System.Windows.Forms.TextBox описание_схемы_лечения_и_назначенийTextBox;
         private System.Windows.Forms.BindingSource CardBindingSource;
         private System.Windows.Forms.Button CardCancelButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодПациентаDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn адресПроживанияDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn датаРожденияDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn полDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn телефонDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn признакЛьготDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn PatientChangeColumn;
-        private System.Windows.Forms.DataGridViewImageColumn PatientDeleteColumn;
         private System.Windows.Forms.Panel DoctorPanel;
         private System.Windows.Forms.ComboBox код_категории_специальностиComboBox;
         private System.Windows.Forms.TextBox фИОTextBox1;
@@ -1735,14 +1829,6 @@
         private System.Windows.Forms.Button DiagnosesCancelButton;
         private System.Windows.Forms.Button DiagnosesSaveButton;
         private System.Windows.Forms.TextBox наименованиеTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодПациентаDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодВрачаDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодДиагнозаDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn описаниеСхемыЛеченияИНазначенийDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn CardViewChangeColumn;
-        private System.Windows.Forms.DataGridViewImageColumn CardViewDeleteColumn;
         private System.Windows.Forms.Button SpecialtyAddButton;
         private System.Windows.Forms.Panel SpecialtyPanel;
         private System.Windows.Forms.Button SpecialtyCancelButton;
@@ -1753,14 +1839,51 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewImageColumn DoctorChangeColumn;
         private System.Windows.Forms.DataGridViewImageColumn DoctorDeleteColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewImageColumn DiagnosesChangeColumn;
-        private System.Windows.Forms.DataGridViewImageColumn DiagnosesDeleteColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewImageColumn SpecialtyChangeColumn;
         private System.Windows.Forms.DataGridViewImageColumn SpecialtyDeleteColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодПациентаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn адресПроживанияDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn датаРожденияDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn полDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn телефонDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn признакЛьготDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn PatientChangeColumn;
+        private System.Windows.Forms.DataGridViewImageColumn PatientDeleteColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодПациентаDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодВрачаDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодДиагнозаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn описаниеСхемыЛеченияИНазначенийDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn CardViewChangeColumn;
+        private System.Windows.Forms.DataGridViewImageColumn CardViewDeleteColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодПациентаDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодВрачаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn датаИВремяПриёмаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn RegistryChangeColumn;
+        private System.Windows.Forms.DataGridViewImageColumn RegistryDeleteColumn;
+        private System.Windows.Forms.ComboBox льготыComboBox;
+        private System.Windows.Forms.ComboBox полComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewImageColumn DiagnosesChangeColumn;
+        private System.Windows.Forms.DataGridViewImageColumn DiagnosesDeleteColumn;
+        private System.Windows.Forms.MenuStrip MenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem ExportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DoctorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PatientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DiagnosesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RegistryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SpecialtyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutProgramToolStripMenuItem;
     }
 }
 

@@ -117,29 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="add_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
   </data>
-  <data name="delete_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="edit_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Save_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Save-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AddButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AddButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CancelButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CancelButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Panel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Panel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SaveButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SaveButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Предназначение данной системы: учёт и регистрация приёмов пациентов, хранение и учёт амбулаторных карт пациентов, хранение данных о врачах и их категории специальности, а так же хранение видов диагнозов.</value>
   </data>
 </root>

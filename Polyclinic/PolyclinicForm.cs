@@ -6,8 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Data.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop;
 
 namespace Polyclinic
 {
@@ -18,6 +18,7 @@ namespace Polyclinic
             InitializeComponent();
         }
 
+        #region Методы
         enum ResultClick
         {
             None,
@@ -96,7 +97,7 @@ namespace Polyclinic
         public void ChangeDisplayElements(DataGridView dataGrid, Button button, Panel panel, bool show)
         {
             if (show)
-            {
+           {
                 dataGrid.Visible = true;
                 button.Visible = true;
                 panel.Visible = false;
@@ -113,12 +114,14 @@ namespace Polyclinic
         {
             if (enable)
             {
+                ControlBox = true;
                 ((Control)tabPage2).Enabled = true;
                 ((Control)tabPage3).Enabled = true;
                 ((Control)tabPage4).Enabled = true;
             }
             else
             {
+                ControlBox = false;
                 ((Control)tabPage2).Enabled = false;
                 ((Control)tabPage3).Enabled = false;
                 ((Control)tabPage4).Enabled = false;
@@ -143,26 +146,57 @@ namespace Polyclinic
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void ExportInExcel(DataGridView dataGridView)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.Амбулаторная_карта". При необходимости она может быть перемещена или удалена.
-            this.CardTableAdapter.Fill(this.polyDataSet.Амбулаторная_карта);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.Диагнозы". При необходимости она может быть перемещена или удалена.
-            this.DiagnosesTableAdapter.Fill(this.polyDataSet.Диагнозы);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.Категория_врачебной_специальности". При необходимости она может быть перемещена или удалена.
-            this.SpecialtyTableAdapter.Fill(this.polyDataSet.Категория_врачебной_специальности);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.СхемаЛечения". При необходимости она может быть перемещена или удалена.
-            this.CardViewTableAdapter.Fill(this.polyDataSet.СхемаЛечения);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.Пациент". При необходимости она может быть перемещена или удалена.
-            this.PatientTableAdapter.Fill(this.polyDataSet.Пациент);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.Врачи". При необходимости она может быть перемещена или удалена.
-            this.DoctorTableAdapter.Fill(this.polyDataSet.Врачи);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.Регистратура". При необходимости она может быть перемещена или удалена.
-            this.RegistryTableAdapter.Fill(this.polyDataSet.Регистратура);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "polyDataSet.СписокРегистратуры". При необходимости она может быть перемещена или удалена.
-            this.RegistryViewTableAdapter.Fill(this.polyDataSet.СписокРегистратуры);
+            try
+            {
+                WaitForm waitForm = new WaitForm();
+                waitForm.Show();
+
+                Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+                ExcelApp.Application.Workbooks.Add(Type.Missing);
+                for (int i = 0; i < dataGridView.ColumnCount - 2; i++)
+                {
+                    ExcelApp.Cells[1, i + 1] = dataGridView.Columns[i].HeaderText;
+
+                    for (int j = 0; j < dataGridView.RowCount; j++)
+                    {
+                        ExcelApp.Cells[j + 2, i + 1] = (dataGridView[i, j].Value).ToString();
+                    }
+                }
+                ExcelApp.Columns.AutoFit();
+                ExcelApp.Visible = true;
+
+                waitForm.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка экспорта: " + ex.Message);
+            }
+        }
+        #endregion
+
+        private void PolyclinicForm_Load(object sender, EventArgs e)
+        {
+            DoctorDataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft YaHei", 12F, FontStyle.Bold);
+            CardTableAdapter.Fill(polyDataSet.Амбулаторная_карта);
+            DiagnosesTableAdapter.Fill(polyDataSet.Диагнозы);
+            SpecialtyTableAdapter.Fill(polyDataSet.Категория_врачебной_специальности);
+            CardViewTableAdapter.Fill(polyDataSet.СхемаЛечения);
+            PatientTableAdapter.Fill(polyDataSet.Пациент);
+            DoctorTableAdapter.Fill(polyDataSet.Врачи);
+            RegistryTableAdapter.Fill(polyDataSet.Регистратура);
+            RegistryViewTableAdapter.Fill(polyDataSet.СписокРегистратуры);
         }
 
+        private void PolyclinicForm_SizeChanged(object sender, EventArgs e)
+        {
+            PolyclinicTabControl.Left = ClientSize.Width / 2 - PolyclinicTabControl.Width / 2;
+            PolyclinicTabControl.Top = ClientSize.Height / 2 - PolyclinicTabControl.Height / 2;
+        }
+
+
+        #region Работа с данными таблицы "Пациент"
         private void PatientDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < PatientDataGridView.ColumnCount - 2)
@@ -193,6 +227,8 @@ namespace Polyclinic
         {
             EnableDisplayElements(false);
             PatientBindingSource.AddNew();
+            полComboBox.SelectedValue = -1;
+            льготыComboBox.SelectedValue = -1;
             дата_рожденияDateTimePicker.Value = DateTime.Parse("12.12.2000");
             ChangeDisplayElements(PatientDataGridView, PatientAddButton, PatientPanel, false);
         }
@@ -210,7 +246,9 @@ namespace Polyclinic
             PatientBindingSource.CancelEdit();
             ChangeDisplayElements(PatientDataGridView, PatientAddButton, PatientPanel, true);
         }
+        #endregion
 
+        #region Работа с данными представления "Список Регистратуры"
         private void RegistryViewDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             RegistryBindingSource.Position = e.RowIndex;
@@ -248,6 +286,7 @@ namespace Polyclinic
             EnableDisplayElements(false);
             RegistryBindingSource.AddNew();
             PatientGroupBox.Enabled = false;
+            код_пациентаComboBox.SelectedValue = PatientDataGridView.CurrentRow.Cells[0].Value;
             дата_и_время_приёмаDateTimePicker.Value = DateTime.Now;
             ChangeDisplayElements(RegistryViewDataGridView, RegistryAddButton, RegistryPanel, false);
         }
@@ -267,7 +306,9 @@ namespace Polyclinic
             RegistryBindingSource.CancelEdit();
             ChangeDisplayElements(RegistryViewDataGridView, RegistryAddButton, RegistryPanel, true);
         }
+        #endregion
 
+        #region Работа с данными представления "Схема лечения"
         private void CardViewDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             CardBindingSource.Position = e.RowIndex;
@@ -305,6 +346,7 @@ namespace Polyclinic
             CardBindingSource.AddNew();
             EnableDisplayElements(false);
             PatientGroupBox.Enabled = false;
+            код_пациентаComboBox1.SelectedValue = PatientDataGridView.CurrentRow.Cells[0].Value;
             ChangeDisplayElements(CardViewDataGridView, CardAddButton, CardPanel, false);
         }
 
@@ -323,7 +365,9 @@ namespace Polyclinic
             PatientGroupBox.Enabled = true;
             ChangeDisplayElements(CardViewDataGridView, CardAddButton, CardPanel, true);
         }
+        #endregion
 
+        #region Работа с данными таблицы "Врачи"
         private void DoctorDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < DoctorDataGridView.ColumnCount - 2)
@@ -365,7 +409,9 @@ namespace Polyclinic
             DoctorBindingSource.CancelEdit();
             EnableDisplayElements(DoctorDataGridView, DoctorAddButton, DoctorPanel, true);
         }
+        #endregion
 
+        #region Работа с данными таблицы "Диагнозы"
         private void DiagnosesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < DiagnosesDataGridView.ColumnCount - 2)
@@ -407,7 +453,9 @@ namespace Polyclinic
             DiagnosesBindingSource.CancelEdit();
             EnableDisplayElements(DiagnosesDataGridView, DiagnosesAddButton, DiagnosesPanel, true);
         }
+        #endregion
 
+        #region Работа с данными таблицы "Категория врачебной специальности"
         private void SpecialtyDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < SpecialtyDataGridView.ColumnCount - 2)
@@ -449,11 +497,44 @@ namespace Polyclinic
             SpecialtyBindingSource.CancelEdit();
             EnableDisplayElements(SpecialtyDataGridView, SpecialtyAddButton, SpecialtyPanel, true);
         }
+        #endregion
 
-        private void PolyclinicForm_SizeChanged(object sender, EventArgs e)
+        #region Экспорт в Excel
+        private void DoctorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PolyclinicTabControl.Left = ClientSize.Width / 2 - PolyclinicTabControl.Width / 2;
-            PolyclinicTabControl.Top = ClientSize.Height / 2 - PolyclinicTabControl.Height / 2;
+            ExportInExcel(DoctorDataGridView);
+        }
+
+        private void PatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportInExcel(PatientDataGridView);
+        }
+
+        private void DiagnosesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportInExcel(DiagnosesDataGridView);
+        }
+
+        private void RegistryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportInExcel(RegistryViewDataGridView);
+        }
+
+        private void CardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportInExcel(CardViewDataGridView);
+        }
+
+        private void SpecialtyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportInExcel(SpecialtyDataGridView);
+        }
+        #endregion
+
+        private void AboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm();
+            helpForm.Show();
         }
     }
 }

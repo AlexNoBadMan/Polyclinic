@@ -52,8 +52,6 @@ namespace Polyclinic {
         
         private global::System.Data.DataRelation relationFK_Регистратура_Пациент;
         
-        private global::System.Data.DataRelation relationFK_Пациент_СписокРегистратуры;
-        
         private global::System.Data.DataRelation relationВрачи_СписокРегистратуры;
         
         private global::System.Data.DataRelation relationПациент_СхемаЛечения;
@@ -61,6 +59,8 @@ namespace Polyclinic {
         private global::System.Data.DataRelation relationВрачи_СхемаЛечения;
         
         private global::System.Data.DataRelation relationДиагнозы_СхемаЛечения;
+        
+        private global::System.Data.DataRelation relationПациент_СписокРегистратуры;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -390,11 +390,11 @@ namespace Polyclinic {
             this.relationFK_Врачи_Категория_врачебной_специальности = this.Relations["FK_Врачи_Категория врачебной специальности"];
             this.relationFK_Регистратура_Врачи = this.Relations["FK_Регистратура_Врачи"];
             this.relationFK_Регистратура_Пациент = this.Relations["FK_Регистратура_Пациент"];
-            this.relationFK_Пациент_СписокРегистратуры = this.Relations["FK_Пациент_СписокРегистратуры"];
             this.relationВрачи_СписокРегистратуры = this.Relations["Врачи_СписокРегистратуры"];
             this.relationПациент_СхемаЛечения = this.Relations["Пациент_СхемаЛечения"];
             this.relationВрачи_СхемаЛечения = this.Relations["Врачи_СхемаЛечения"];
             this.relationДиагнозы_СхемаЛечения = this.Relations["Диагнозы_СхемаЛечения"];
+            this.relationПациент_СписокРегистратуры = this.Relations["Пациент_СписокРегистратуры"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -445,10 +445,6 @@ namespace Polyclinic {
                         this.tableПациент.Код_пациентаColumn}, new global::System.Data.DataColumn[] {
                         this.tableРегистратура.Код_пациентаColumn}, false);
             this.Relations.Add(this.relationFK_Регистратура_Пациент);
-            this.relationFK_Пациент_СписокРегистратуры = new global::System.Data.DataRelation("FK_Пациент_СписокРегистратуры", new global::System.Data.DataColumn[] {
-                        this.tableПациент.Код_пациентаColumn}, new global::System.Data.DataColumn[] {
-                        this.tableСписокРегистратуры.Код_пациентаColumn}, false);
-            this.Relations.Add(this.relationFK_Пациент_СписокРегистратуры);
             this.relationВрачи_СписокРегистратуры = new global::System.Data.DataRelation("Врачи_СписокРегистратуры", new global::System.Data.DataColumn[] {
                         this.tableВрачи.Код_врачаColumn}, new global::System.Data.DataColumn[] {
                         this.tableСписокРегистратуры.Код_врачаColumn}, false);
@@ -465,6 +461,10 @@ namespace Polyclinic {
                         this.tableДиагнозы.Код_диагнозаColumn}, new global::System.Data.DataColumn[] {
                         this.tableСхемаЛечения.Код_диагнозаColumn}, false);
             this.Relations.Add(this.relationДиагнозы_СхемаЛечения);
+            this.relationПациент_СписокРегистратуры = new global::System.Data.DataRelation("Пациент_СписокРегистратуры", new global::System.Data.DataColumn[] {
+                        this.tableПациент.Код_пациентаColumn}, new global::System.Data.DataColumn[] {
+                        this.tableСписокРегистратуры.Код_пациентаColumn}, false);
+            this.Relations.Add(this.relationПациент_СписокРегистратуры);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2568,7 +2568,7 @@ namespace Polyclinic {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public СписокРегистратурыRow AddСписокРегистратурыRow(int id, ПациентRow parentПациентRowByFK_Пациент_СписокРегистратуры, ВрачиRow parentВрачиRowByВрачи_СписокРегистратуры, System.DateTime Дата_и_время_приёма, string ФИО, string Наименование) {
+            public СписокРегистратурыRow AddСписокРегистратурыRow(int id, ПациентRow parentПациентRowByПациент_СписокРегистратуры, ВрачиRow parentВрачиRowByВрачи_СписокРегистратуры, System.DateTime Дата_и_время_приёма, string ФИО, string Наименование) {
                 СписокРегистратурыRow rowСписокРегистратурыRow = ((СписокРегистратурыRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -2577,8 +2577,8 @@ namespace Polyclinic {
                         Дата_и_время_приёма,
                         ФИО,
                         Наименование};
-                if ((parentПациентRowByFK_Пациент_СписокРегистратуры != null)) {
-                    columnValuesArray[1] = parentПациентRowByFK_Пациент_СписокРегистратуры[0];
+                if ((parentПациентRowByПациент_СписокРегистратуры != null)) {
+                    columnValuesArray[1] = parentПациентRowByПациент_СписокРегистратуры[0];
                 }
                 if ((parentВрачиRowByВрачи_СписокРегистратуры != null)) {
                     columnValuesArray[2] = parentВрачиRowByВрачи_СписокРегистратуры[0];
@@ -3775,23 +3775,23 @@ namespace Polyclinic {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public СписокРегистратурыRow[] GetСписокРегистратурыRows() {
-                if ((this.Table.ChildRelations["FK_Пациент_СписокРегистратуры"] == null)) {
-                    return new СписокРегистратурыRow[0];
-                }
-                else {
-                    return ((СписокРегистратурыRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Пациент_СписокРегистратуры"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public СхемаЛеченияRow[] GetСхемаЛеченияRows() {
                 if ((this.Table.ChildRelations["Пациент_СхемаЛечения"] == null)) {
                     return new СхемаЛеченияRow[0];
                 }
                 else {
                     return ((СхемаЛеченияRow[])(base.GetChildRows(this.Table.ChildRelations["Пациент_СхемаЛечения"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public СписокРегистратурыRow[] GetСписокРегистратурыRows() {
+                if ((this.Table.ChildRelations["Пациент_СписокРегистратуры"] == null)) {
+                    return new СписокРегистратурыRow[0];
+                }
+                else {
+                    return ((СписокРегистратурыRow[])(base.GetChildRows(this.Table.ChildRelations["Пациент_СписокРегистратуры"])));
                 }
             }
         }
@@ -4037,23 +4037,23 @@ namespace Polyclinic {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ПациентRow ПациентRow {
-                get {
-                    return ((ПациентRow)(this.GetParentRow(this.Table.ParentRelations["FK_Пациент_СписокРегистратуры"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Пациент_СписокРегистратуры"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ВрачиRow ВрачиRow {
                 get {
                     return ((ВрачиRow)(this.GetParentRow(this.Table.ParentRelations["Врачи_СписокРегистратуры"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["Врачи_СписокРегистратуры"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ПациентRow ПациентRow {
+                get {
+                    return ((ПациентRow)(this.GetParentRow(this.Table.ParentRelations["Пациент_СписокРегистратуры"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Пациент_СписокРегистратуры"]);
                 }
             }
             
